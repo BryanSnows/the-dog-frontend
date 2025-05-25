@@ -1,0 +1,95 @@
+// Light
+$color-brand-light: #ef6c00;
+$color-brand-hover-light: #ff8533;
+$color-brand-pressing-light: #d66100;
+$color-brand-opacity-20-light: #ef6c0033;
+$color-text-light: #383838;
+$color-text-secundary-light: #e9e9e9;
+$color-box-light: #ffffff;
+$color-background-light: #f0f0f0;
+$color-line-light: #d7dbde;
+$color-inactive-button-light: #e0e0e0;
+$color-inactive-text-light: #908f92;
+$color-input-light: #fafafafa;
+$color-support-grey-light: #747474;
+$color-info-light: #0000ac;
+$color-success-light: #008720;
+$color-error-light: #da0000;
+$color-error-hover-light: #f20000;
+$color-error-pressing-light: #f20000;
+$color-warning-light: #ffeb3b;
+
+$color-black-filter: brightness(1.2);
+
+$color-brand-light-filter: brightness(0) saturate(100%) invert(40%) sepia(99%)
+  saturate(1663%) hue-rotate(7deg) brightness(99%) contrast(102%);
+$color-brand-hover-light-filter: brightness(0) saturate(100%) invert(65%)
+  sepia(56%) saturate(2695%) hue-rotate(336deg) brightness(101%) contrast(101%);
+$color-text-light-filter: brightness(0) saturate(100%) invert(19%) sepia(0%)
+  saturate(0%) hue-rotate(201deg) brightness(93%) contrast(86%);
+$color-support-grey-light-filter: brightness(0) saturate(100%) invert(48%)
+  sepia(0%) saturate(1032%) hue-rotate(240deg) brightness(94%) contrast(98%);
+$color-box-light-filter: brightness(0) saturate(100%) invert(100%) sepia(1%)
+  saturate(1%) hue-rotate(105deg) brightness(104%) contrast(100%);
+$color-text-secundary-light-filter: brightness(0) saturate(100%) invert(99%)
+  sepia(57%) saturate(173%) hue-rotate(291deg) brightness(114%) contrast(83%);
+$color-inactive-button-light-filter: brightness(0) saturate(100%) invert(100%)
+  sepia(2%) saturate(3431%) hue-rotate(176deg) brightness(113%) contrast(76%);
+$color-error-light-filter: brightness(0) saturate(100%) invert(9%) sepia(87%)
+  saturate(6888%) hue-rotate(9deg) brightness(95%) contrast(116%);
+$color-error-hover-light-filter: brightness(0) saturate(100%) invert(12%)
+  sepia(90%) saturate(6726%) hue-rotate(13deg) brightness(93%) contrast(123%);
+$color-success-light-filter: brightness(0) saturate(100%) invert(23%) sepia(98%)
+  saturate(3651%) hue-rotate(137deg) brightness(92%) contrast(101%);
+$color-inactive-text-light-filter: brightness(0) saturate(100%) invert(64%)
+  sepia(7%) saturate(102%) hue-rotate(219deg) brightness(88%) contrast(85%);
+
+// Dark
+$color-brand-dark: #ff9800;
+$color-brand-hover-dark: #ffad33;
+$color-brand-pressing-dark: #e58900;
+$color-brand-opacity-20-dark: #ff980033;
+$color-text-dark: #ffffff;
+$color-text-secundary-dark: #383838;
+$color-box-dark: #474f58;
+$color-background-dark: #343a40;
+$color-line-dark: #56626e;
+$color-inactive-button-dark: #56626e;
+$color-inactive-text-dark: #bcc3ca;
+$color-input-dark: #3c444d;
+$color-support-grey-dark: #c2c2c2;
+$color-info-dark: #0c2fc8fa;
+$color-success-dark: #28a745;
+$color-error-dark: #dc3545;
+$color-error-hover-dark: #ff3d50;
+$color-error-pressing-dark: #c22f3d;
+$color-warning-dark: #fdd835;
+
+$color-brand-dark-filter: brightness(0) saturate(100%) invert(53%) sepia(94%)
+  saturate(1108%) hue-rotate(0deg) brightness(103%) contrast(105%);
+$color-brand-hover-dark-filter: brightness(0) saturate(100%) invert(71%)
+  sepia(66%) saturate(2136%) hue-rotate(335deg) brightness(114%) contrast(106%);
+$color-text-dark-filter: brightness(0) saturate(100%) invert(100%) sepia(100%)
+  saturate(0%) hue-rotate(224deg) brightness(102%) contrast(105%);
+$color-support-grey-dark-filter: brightness(0) saturate(100%) invert(100%)
+  sepia(0%) saturate(6193%) hue-rotate(48deg) brightness(123%) contrast(52%);
+$color-box-dark-filter: brightness(0) saturate(100%) invert(27%) sepia(8%)
+  saturate(874%) hue-rotate(172deg) brightness(98%) contrast(86%);
+$color-text-secundary-dark-filter: brightness(0) saturate(100%) invert(18%)
+  sepia(18%) saturate(0%) hue-rotate(165deg) brightness(105%) contrast(93%);
+$color-inactive-button-dark-filter: brightness(0) saturate(100%) invert(37%)
+  sepia(11%) saturate(587%) hue-rotate(169deg) brightness(97%) contrast(92%);
+$color-error-dark-filter: brightness(0) saturate(100%) invert(33%) sepia(66%)
+  saturate(3729%) hue-rotate(335deg) brightness(89%) contrast(94%);
+$color-error-hover-dark-filter: brightness(0) saturate(100%) invert(42%)
+  sepia(71%) saturate(3702%) hue-rotate(330deg) brightness(100%) contrast(112%);
+$color-success-dark-filter: brightness(0) saturate(100%) invert(48%) sepia(79%)
+  saturate(425%) hue-rotate(81deg) brightness(92%) contrast(96%);
+$color-inactive-text-dark-filter: brightness(0) saturate(100%) invert(81%)
+  sepia(10%) saturate(167%) hue-rotate(169deg) brightness(93%) contrast(95%);
+$color-warning-dark-filter: brightness(0) saturate(100%) invert(69%) sepia(98%)
+  saturate(338%) hue-rotate(2deg) brightness(105%) contrast(99%);
+
+$font-size-xl: 24px;
+$font-size-xxl: 32px;
+$font-size-xxxl: 40px;
