@@ -30,25 +30,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.theme = 'dark';
+    this.renderer.addClass(this.document.body, 'dark-theme');
   }
 
   ngOnDestroy() {
     this.ngUnsubscribe$.next();
     this.ngUnsubscribe$.complete();
-  }
-
-  toggleTheme(mode: string) {
-    if (mode === 'dark') {
-      if (this.document.body.classList.contains('light-theme')) {
-        this.renderer.removeClass(this.document.body, 'light-theme');
-      }
-      this.renderer.addClass(this.document.body, 'dark-theme');
-    } else {
-      if (this.document.body.classList.contains('dark-theme')) {
-        this.renderer.removeClass(this.document.body, 'dark-theme');
-      }
-      this.renderer.addClass(this.document.body, 'light-theme');
-    }
   }
 }

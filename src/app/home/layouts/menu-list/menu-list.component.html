@@ -6,17 +6,6 @@
     >
       <button (click)="goToModule('/welcome')" class="logo-btn">
         <img
-          src="../../../../assets/images/logo-light.svg"
-          alt="Vision AI"
-          class="logo-btn-img logo-light"
-        />
-        <img
-          src="../../../../assets/images/vision-ai-brand.svg"
-          alt="Vision AI"
-          class="brand-light"
-          *ngIf="menuOpen"
-        />
-        <img
           src="../../../../assets/images/logo-dark.svg"
           alt="Vision AI"
           class="logo-btn-img logo-dark"
@@ -28,73 +17,6 @@
           *ngIf="menuOpen"
         />
       </button>
-    </mat-list-item>
-
-    <mat-divider></mat-divider>
-
-    <mat-list-item
-      id="dashboardContainer"
-      (click)="goToModule('/dashboard')"
-      routerLinkActive="active"
-      class="menu-list-item"
-      [ngClass]="{
-        'centralize-item': !menuOpen,
-        active: routeActive.startsWith('/dashboard')
-      }"
-    >
-      <img
-        src="../../../../assets/images/dashboard/dashboard-icon.svg"
-        alt="Dashboard"
-      />
-      <p *ngIf="menuOpen">Dashboard</p>
-    </mat-list-item>
-
-    <mat-list-item
-      id="boardsContainer"
-      (click)="goToModule('/boards')"
-      routerLinkActive="active"
-      class="menu-list-item"
-      [ngClass]="{
-        'centralize-item': !menuOpen,
-        active: routeActive.startsWith('/boards')
-      }"
-    >
-      <img src="../../../../assets/images/boards/board-icon.svg" alt="Boards" />
-      <p *ngIf="menuOpen">Placas</p>
-    </mat-list-item>
-
-    <mat-list-item
-      id="inspectionsContainer"
-      (click)="goToModule('/inspections')"
-      routerLinkActive="active"
-      class="menu-list-item"
-      [ngClass]="{
-        'centralize-item': !menuOpen,
-        active: routeActive.startsWith('/inspections')
-      }"
-    >
-      <img
-        src="../../../../assets/images/inspections/inspection-icon.svg"
-        alt="Inspections"
-      />
-      <p *ngIf="menuOpen">Inspeção</p>
-    </mat-list-item>
-
-    <mat-list-item
-      id="productionLineContainer"
-      (click)="goToModule('/production-lines')"
-      routerLinkActive="active"
-      class="menu-list-item"
-      [ngClass]="{
-        'centralize-item': !menuOpen,
-        active: routeActive.startsWith('/production-lines')
-      }"
-    >
-      <img
-        src="../../../../assets/images/production-lines/production-line-icon.svg"
-        alt="Production lines"
-      />
-      <p *ngIf="menuOpen">Linhas de produção</p>
     </mat-list-item>
 
     <mat-divider></mat-divider>

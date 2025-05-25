@@ -10,7 +10,7 @@ export const homeRoute: Routes = [
       userRoute,
       {
         path: '',
-        redirectTo: '/users',
+        redirectTo: '/welcome',
         pathMatch: 'full',
       },
     ],
