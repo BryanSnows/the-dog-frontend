@@ -55,7 +55,7 @@ export class MenuListComponent implements OnInit, OnDestroy {
   getUserData() {
     const userImagePath = './../../../assets/images/icons/profile-icon.svg';
 
-    this.userName = 'ADMIN';
+    this.userName = 'Usuário';
     this.userRole = 'ADMIN';
     this.userImage = userImagePath;
   }
