@@ -1,5 +1,5 @@
 {
-  "name": "angular-data-hub",
+  "name": "the-dog-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:angular-data-hub": "node dist/angular-data-hub/server/server.mjs"
+    "serve:ssr:the-dog-frontend": "node dist/the-dog-frontend/server/server.mjs"
   },
   "private": true,
   "dependencies": {
