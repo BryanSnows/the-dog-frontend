@@ -1,59 +1,113 @@
-# DogCrud
+# DogCrud 🐶
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+Este projeto foi gerado usando o [Angular CLI](https://github.com/angular/angular-cli) versão 17.2
 
-## Development server
+## 📦 Sobre o Projeto
 
-To start a local development server, run:
+DogCrud é uma aplicação Angular que consome a [The Dog API](https://thedogapi.com/) para:
+
+- Listar raças de cães
+- Visualizar detalhes de raças
+- Exibir imagens
+- Aprender mais sobre as características de cada cão
+
+## 🗂️ Estrutura de Pastas
+
+A arquitetura do projeto foi pensada para manter a organização e escalabilidade da aplicação:
+
+```bash
+src/
+├── app/
+│ ├── home/ # Funcionalidades principais da aplicação
+│ │ ├── dog/ # Lógica e interface de listagem/visualização de raças
+│ │ ├── layouts/ # Estrutura visual (ex: header, sidebar)
+│ │ └── welcome/ # Página de boas-vindas
+│ ├── shared/ # Elementos compartilhados
+│ │ ├── components/ # Componentes reutilizáveis (ex: search-bar)
+│ │ └── services/ # Serviços (ex: THE DOG API)
+│ └── app.routes.ts # Configuração de rotas
+├── assets/ # Imagens, fontes e recursos estáticos
+├── environments/ # Arquivos de ambiente (ex: development)
+└── scss/ # Estilos globais
+```
+
+## ▶️ Rodando o Servidor de Desenvolvimento
+
+Antes de iniciar o servidor, instale as dependências do projeto com o comando:
+
+```bash
+npm install
+```
+
+Para iniciar o servidor local:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Depois, acesse [http://localhost:4200/](http://localhost:4200/). O app recarregará automaticamente ao salvar arquivos.
 
-## Code scaffolding
+![alt text](./src/assets/images/readme/the-dog-welcome.png)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## ⚙️ Gerando Componentes com o Angular CLI
 
 ```bash
 ng generate component component-name
+
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Para ver todos os esquemas disponíveis:
 
 ```bash
 ng generate --help
 ```
 
-## Building
+## 🛠️ Build
 
-To build the project run:
+Para compilar o projeto:
 
 ```bash
-ng build
+ng generate --help
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+O resultado será salvo no diretório dist/.
 
-## Running unit tests
+## ✅ Testes Unitários
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+O projeto possui testes unitários escritos com **Jasmine** e executados com **Karma**.
+
+### Para rodar os testes:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+O comando abre uma janela no navegador com o resultado da suíte de testes, atualizando automaticamente com cada modificação.
 
-For end-to-end (e2e) testing, run:
+![alt text](./src/assets/images/readme/unit-tests.png)
 
-```bash
-ng e2e
-```
+### Os testes validam:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- ✅ Comportamento dos componentes (ex: clique em botões, emissão de eventos)
+- ✅ Reações a inputs e interações do usuário
+- ✅ Serviços com mocks da API
+- ✅ Rotas e navegação entre páginas
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🌱 GitFlow e Versionamento
+
+O projeto segue o fluxo de desenvolvimento **GitFlow**:
+
+- `main`: branch de produção
+- `develop`: branch de desenvolvimento
+- `feature/nome-da-feature`: novas funcionalidades
+- `bugfix/nome-do-bug`: correções específicas
+
+---
+
+![alt text](./src/assets/images/readme/gitkrakem.png)
+
+## Recursos Adicionais
+
+Para obter mais informações sobre o uso do Angular CLI, incluindo referências detalhadas de comando, visite o [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) página.

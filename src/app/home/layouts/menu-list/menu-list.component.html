@@ -22,7 +22,7 @@
       class="menu-list-item"
       [ngClass]="{
         'centralize-item': !menuOpen,
-        active: routeActive.startsWith('/dogs')
+        active: routeActive?.startsWith('/dogs')
       }"
     >
       <img src="../../../../assets/images/dogs/dog-icon.svg" alt="Dogs" />

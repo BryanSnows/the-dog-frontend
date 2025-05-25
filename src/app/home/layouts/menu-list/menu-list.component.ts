@@ -25,7 +25,7 @@ export class MenuListComponent implements OnInit, OnDestroy {
   userRole: any = '';
   isMobile: boolean = false;
   isEditing: boolean = false;
-  routeActive!: string;
+  routeActive!: any;
 
   private readonly subscriptions = new Subscription();
 
