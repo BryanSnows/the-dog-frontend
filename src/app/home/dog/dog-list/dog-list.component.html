@@ -23,16 +23,42 @@
         [secMessage]="secMessage"
       ></app-no-results>
     </div>
+
     <div *ngFor="let dog of dogs" class="list-item">
       <div class="list-info">
-        <div class="list-info-section-left">
+        <img
+          *ngIf="dog.reference_image_id"
+          [src]="
+            'https://cdn2.thedogapi.com/images/' +
+            dog.reference_image_id +
+            '.jpg'
+          "
+          alt="{{ dog.name }}"
+          width="80"
+          height="80"
+          style="border-radius: 8px; object-fit: cover"
+        />
+
+        <div class="list-info-section">
           <strong>{{ dog.name }}</strong>
-          <div>{{ dog.breed_group || "Unknown group" }}</div>
-          <div class="hide-mobile">{{ dog.temperament }}</div>
+          <div>
+            <span><b>Origem:</b> {{ dog.origin || "Desconhecida" }}</span> |
+            <span
+              ><b>Grupo:</b> {{ dog.breed_group || "Não classificado" }}</span
+            >
+          </div>
+          <div><b>Expectativa de vida:</b> {{ dog.life_span }}</div>
+          <div>
+            <b>Peso:</b> {{ dog.weight?.metric }} kg | <b>Altura:</b>
+            {{ dog.height?.metric }} cm
+          </div>
         </div>
-        <button class="option-button" (click)="openConfirmationDialog(dog)">
-          <mat-icon>delete</mat-icon>
-        </button>
+
+        <div class="list-actions">
+          <button class="option-button" (click)="openConfirmationDialog(dog)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
       </div>
     </div>
   </div>

@@ -18,11 +18,12 @@ export class DogListComponent implements OnInit {
   dogs: any[] = [];
   isLoading = false;
   searchTimeout: any;
-  currentPage = 0;
+  currentPage = 1;
   totalPages = 1;
   filters: any = {};
   titleMessage: string = 'general.no-result-title';
   secMessage: string = 'general.no-result-message';
+  allDogs: any[] = [];
 
   constructor(
     private readonly dogService: DogService,
@@ -35,17 +36,18 @@ export class DogListComponent implements OnInit {
   }
 
   setPage(page: number) {
-    this.isLoading = true;
     this.currentPage = page;
-    this.loadDogs(this.currentPage);
-    this.isLoading = false;
+    const startIndex = page * 5;
+    const endIndex = startIndex + 5;
+    this.dogs = this.allDogs.slice(startIndex, endIndex);
   }
 
   searchDogs(searchTerm: string) {
     clearTimeout(this.searchTimeout);
     this.searchTimeout = setTimeout(() => {
       this.filters.search = searchTerm;
-      this.loadDogs(0);
+      this.currentPage = 0;
+      this.loadDogs(this.currentPage);
     }, 500);
   }
 
@@ -58,13 +60,27 @@ export class DogListComponent implements OnInit {
 
   loadDogs(page: number) {
     const search = this.filters.search || '';
-    this.dogService.findAll(5, page, search).subscribe({
+    this.isLoading = true;
+
+    this.dogService.findAll(search).subscribe({
       next: (response) => {
-        this.dogs = Array.isArray(response) ? response : response.slice();
-        this.totalPages = Math.ceil(this.dogs.length / 5);
-        if (this.dogs.length === 0) this.showEmptyResult();
+        this.allDogs = Array.isArray(response) ? response : [];
+
+        this.totalPages = Math.ceil(this.allDogs.length / 5) || 1;
+
+        const startIndex = page * 5;
+        const endIndex = startIndex + 5;
+
+        this.dogs = this.allDogs.slice(startIndex, endIndex);
+
+        if (this.dogs.length === 0) {
+          this.showEmptyResult();
+        }
+
+        this.isLoading = false;
       },
       error: () => {
+        this.isLoading = false;
         this.showSnackbar('error.error', 'error.load-error', 'error');
       },
     });

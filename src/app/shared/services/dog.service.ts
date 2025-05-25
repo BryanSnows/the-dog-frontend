@@ -10,15 +10,11 @@ export class DogService {
 
   constructor(private readonly http: HttpClient) {}
 
-  findAll(limit = 5, page = 0, search = ''): Observable<any> {
-    const params: any = {
-      limit: limit.toString(),
-      page: page.toString(),
-    };
+  findAll(search = ''): Observable<any> {
     if (search) {
       return this.http.get(`${this.apiUrl}/breeds/search?q=${search}`);
     }
-    return this.http.get(`${this.apiUrl}/breeds`, { params });
+    return this.http.get(`${this.apiUrl}/breeds`);
   }
 
   delete(id: string): Observable<any> {

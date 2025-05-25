@@ -1,4 +1,4 @@
-@import '../../../../scss/variables';
+@import "../../../../scss/variables";
 
 .list-component {
   width: Fixed (1, 253px);
@@ -118,6 +118,10 @@
 }
 
 .list-info {
+  img {
+    height: 120%;
+    border-radius: 12px;
+  }
   cursor: pointer;
 }
 
