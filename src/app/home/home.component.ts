@@ -6,12 +6,12 @@ import {
   ViewChild,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SharedModule } from '../shared';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { MenuListComponent } from './layouts';
+import { MenuListComponent } from './layouts/menu-list/menu-list.component';
 import { MatSidenav } from '@angular/material/sidenav';
 import { FullscreenService } from '../shared/services/fullscreen.service';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-home',

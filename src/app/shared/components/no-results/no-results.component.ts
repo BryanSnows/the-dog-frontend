@@ -1,12 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-no-results',
   standalone: true,
-  imports: [TranslateModule],
+  imports: [],
   templateUrl: './no-results.component.html',
-  styleUrl: './no-results.component.scss'
+  styleUrl: './no-results.component.scss',
 })
 export class NoResultsComponent {
   @Input() titleMessage!: string;

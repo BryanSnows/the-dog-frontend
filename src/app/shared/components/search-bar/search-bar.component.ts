@@ -9,12 +9,11 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-search-bar',
   standalone: true,
-  imports: [TranslateModule, MatIconModule, CommonModule, FormsModule],
+  imports: [MatIconModule, CommonModule, FormsModule],
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.scss',
 })
