@@ -1,1 +1,122 @@
-/* You can add global styles to this file, and also import other style files */
+// Angular Material theme
+@import "theme";
+
+// Reset brings sanity when dealing with cross-browser style inconsistencies
+@import "./scss/reset";
+
+// Color variables
+@import "./scss/variables";
+
+// Base components styles
+@import "./scss/base-components";
+
+// General styles
+@import "./scss/general";
+
+// Material icons
+@import "./scss/material_icons";
+
+// Font family
+@font-face {
+  font-family: "Lato-medium";
+  font-weight: 500;
+  src: url("./assets/fonts/lato-v24-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Lato-regular";
+  font-weight: 400;
+  src: url("./assets/fonts/lato-v24-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Lato-bold";
+  font-weight: 700;
+  src: url("./assets/fonts/lato-v24-latin-700.woff2") format("woff2");
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Lato, "Helvetica Neue", sans-serif !important;
+  background-color: $color-background-light;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+h1 {
+  font-size: 56px;
+  line-height: 60px;
+}
+
+h2 {
+  font-size: 48px;
+  line-height: 52px;
+}
+
+h3 {
+  font-size: 40px;
+  line-height: 48px;
+}
+
+h4 {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+h5 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+h6 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+p span {
+  font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: $font-size-xl;
+  }
+}
+
+@media (min-width: 1920px) {
+  h1 {
+    font-size: $font-size-xxxl;
+  }
+}
+
+@media print {
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

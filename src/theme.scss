@@ -1,0 +1,454 @@
+// Import Angular Material
+@use "@angular/material" as mat;
+
+// Plus imports for other components in your app.
+@import "./scss/palette";
+@import "./scss/variables";
+@import "./scss/theme-dark";
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+// Define a paleta de cores para o tema escuro
+$dark-primary: mat.define-palette($primary-palette-dark);
+$dark-accent: mat.define-palette($primary-palette-dark, A200, A100, A400);
+$dark-warn: mat.define-palette($warn-palette-dark);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $dark-primary,
+      accent: $dark-accent,
+      warn: $dark-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+
+.dark-theme {
+  @include mat.all-component-colors($dark-theme);
+}
+
+/*
+ * Angular material custom css
+ */
+
+.mat-drawer-container {
+  background-color: transparent !important;
+}
+
+//////////////////////////////////////////
+
+/*
+ * Mat Card
+*/
+
+mat-card {
+  box-shadow: 0px 3px 6px #00000026 !important;
+  border-radius: 16px !important;
+  padding: 48px 48px 48px 70px !important;
+  align-self: center;
+}
+
+@media (max-width: 665px) {
+  mat-card {
+    padding: 20px 16px 20px 16px !important;
+  }
+}
+
+/*
+ * Mat form field
+*/
+
+.mdc-list-item__primary-text {
+  font-weight: 700 !important;
+}
+
+.mat-mdc-form-field-icon-suffix {
+  padding-right: 4px !important;
+
+  &:hover {
+    opacity: 0.3;
+    filter: brightness(0) saturate(100%) invert(45%) sepia(96%) saturate(1837%)
+      hue-rotate(1deg) brightness(94%) contrast(104%);
+  }
+}
+
+mat-form-field {
+  button {
+    border: none !important;
+    background-color: transparent !important;
+    padding: 0px !important;
+  }
+}
+
+.user-profile .mdc-form-field,
+.profile-radio-btn .mdc-form-field {
+  align-items: flex-start !important;
+}
+
+.mat-mdc-form-field-error,
+.mat-mdc-form-field-hint {
+  margin-top: 5px !important;
+}
+
+.mat-mdc-form-field-hint {
+  font-size: 12px !important;
+  color: $color-support-grey-light !important;
+}
+
+@media (max-width: 420px) {
+  .mdc-floating-label {
+    font-size: 14px !important;
+  }
+}
+
+//////////////////////////////////////////
+
+/*
+ * Mat check box
+ */
+
+.mdc-checkbox
+  .mdc-checkbox__native-control:enabled:checked
+  ~ .mdc-checkbox__background {
+  .mdc-checkbox__checkmark {
+    color: #ffffff !important;
+  }
+}
+
+//////////////////////////////////////////
+
+/*
+ * Mat list
+ */
+
+.mdc-list {
+  padding: 0px !important;
+}
+
+.mat-mdc-list-base {
+  display: flex !important;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mdc-list-item {
+  .mat-ripple-element {
+    display: none !important;
+  }
+}
+
+.mdc-list-item.mdc-list-item--with-one-line {
+  height: 55px !important;
+}
+
+.mdc-list-item .mat-mdc-list-item-unscoped-content {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px;
+  height: 100%;
+  padding: 10px 12px 10px 12px;
+}
+
+.centralize-item {
+  &.mdc-list-item .mat-mdc-list-item-unscoped-content {
+    justify-content: center !important;
+  }
+}
+
+.mat-mdc-nav-list .mat-mdc-list-item:not(:first-child):hover {
+  .mat-mdc-list-item-focus-overlay {
+    background-color: transparent !important;
+  }
+}
+
+.mat-mdc-nav-list .mat-mdc-list-item:not(:first-child).active {
+  .mat-mdc-list-item-unscoped-content {
+    padding: 12px;
+    border-radius: 12px;
+  }
+}
+
+.mat-drawer-content {
+  margin-top: 40px !important;
+  margin-bottom: 42px !important;
+}
+
+.mat-drawer-side {
+  border-right-width: 0px !important;
+}
+
+.board-menu-register {
+  .mdc-list-item .mat-mdc-list-item-unscoped-content {
+    p {
+      width: 100px;
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .mdc-list-item .mat-mdc-list-item-unscoped-content {
+    padding: 10px 16px;
+  }
+
+  .mat-mdc-nav-list .mat-mdc-list-item:hover {
+    .mat-mdc-list-item-focus-overlay {
+      background-color: transparent !important;
+    }
+
+    img {
+      filter: brightness(0) saturate(100%) invert(42%) sepia(31%)
+        saturate(3894%) hue-rotate(9deg) brightness(102%) contrast(102%);
+      max-width: 30px !important;
+      max-height: 30px !important;
+    }
+  }
+
+  .mat-mdc-nav-list .mat-mdc-list-item.active {
+    .mat-mdc-list-item-unscoped-content {
+      padding: 16px !important;
+      border-radius: 12px;
+    }
+
+    p {
+      width: 100px !important;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .user-profile .mdc-form-field {
+    flex-direction: column !important;
+  }
+}
+
+/* .mdc-list-item__content {
+  width: 60px;
+} */
+
+//////////////////////////////////////////
+
+/*
+ * Mat Tab
+*/
+
+//////////////////////////////////////////
+
+/*
+ * Mat Snack bar
+*/
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  width: 80vw !important;
+  max-width: 80vw !important;
+}
+
+.mdc-snackbar .mdc-snackbar__surface {
+  border-radius: 12px !important;
+  padding-right: 0px !important;
+  width: 100vw !important;
+}
+
+.mdc-snackbar.alert-snackbar {
+  border-radius: 12px !important;
+}
+
+.mdc-snackbar.success-snackbar {
+  border-radius: 12px !important;
+}
+
+.mdc-snackbar.error-snackbar {
+  border-radius: 12px !important;
+}
+
+.mdc-snackbar__label {
+  padding: 0px !important;
+}
+
+//////////////////////////////////////////
+
+/*
+ * Mat Divider
+*/
+
+.mat-divider {
+  &.list-divider {
+    margin: 30px 0 !important;
+  }
+}
+
+//////////////////////////////////////////
+
+/*
+ * Mat Dialog
+*/
+
+.mat-mdc-dialog-container {
+  .mdc-dialog__surface {
+    border-radius: 18px !important;
+    padding: 16px !important;
+  }
+}
+
+//////////////////////////////////////////
+
+/*
+ * Mat Tooltip
+*/
+
+.mat-mdc-tooltip .mdc-tooltip__surface {
+  border-radius: 4px !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  box-shadow: 0px 3px 6px #00000026 !important;
+}
+
+//////////////////////////////////////////
+
+/*
+ * Mat Slider
+*/
+
+.mat-mdc-slider .mat-ripple .mat-mdc-slider-focus-ripple,
+.mat-mdc-slider .mat-ripple .mat-mdc-slider-active-ripple {
+  background-color: transparent !important;
+}
+
+.cdk-overlay-connected-position-bounding-box {
+  margin-top: 5px;
+  margin-left: -16px;
+}
+
+.labeling-tab-content {
+  .search-filter {
+    .mat-mdc-icon-button .mat-mdc-button-touch-target {
+      width: 40px;
+      height: 40px;
+    }
+
+    .mat-mdc-form-field {
+      height: 40px;
+      width: 40px;
+
+      button {
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+    .mat-mdc-form-field-infix {
+      display: none !important;
+      width: 0px !important;
+
+      mat-icon {
+        height: 20px;
+        width: 20px;
+        font-size: 20px;
+      }
+    }
+
+    .mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper {
+      padding-left: 0px !important;
+    }
+
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none !important;
+    }
+
+    .mat-mdc-form-field-icon-suffix {
+      padding: 0px !important;
+    }
+
+    .mdc-text-field {
+      background-color: transparent !important;
+      border-radius: 12px !important;
+    }
+
+    .mdc-text-field--filled:not(.mdc-text-field--disabled)
+      .mdc-line-ripple::before {
+      border-bottom-color: transparent !important;
+    }
+  }
+}
+
+.ngx-mat-color-toggle-active {
+  display: flex;
+  height: 100% !important;
+}
+
+ngx-mat-color-collection,
+.input-opacity,
+.mat-mdc-form-field-required-marker {
+  display: none !important;
+}
+
+//////////////////////////////////////////
+
+/*
+ * Scroll bar
+*/
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+//////////////////////////////////////////
+
+/*
+ * Datepicker
+*/
+
+.cdk-overlay-pane .mat-datepicker-popup {
+  top: 50px !important; /* Adjust the vertical position */
+  left: 20px !important; /* Adjust the horizontal position */
+  /* You can add more styles here, like background color, border, etc. */
+}
+
+.mat-mdc-icon-button.cdk-program-focused
+  .mat-mdc-button-persistent-ripple::before {
+  opacity: 1;
+}
+
+//////////////////////////////////////////
+
+/*
+ * Mat-Menu
+*/
+
+.mat-mdc-menu-panel {
+  border-radius: 12px !important;
+}
+
+.mat-mdc-menu-content {
+  padding: 0px !important;
+}
+
+.mat-mdc-menu-item {
+  padding: 8px;
+}
