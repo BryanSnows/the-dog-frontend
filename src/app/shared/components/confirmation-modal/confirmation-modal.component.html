@@ -1,0 +1,25 @@
+<div class="modal-box">
+  <div class="image-container">
+    <img [src]="data.iconPath" alt="Icon" />
+  </div>
+  <h1 class="modal-title" mat-dialog-title>
+    <strong>{{ data.title }}</strong>
+  </h1>
+  <div class="message" mat-dialog-content>
+    <p [innerHTML]="data.message"></p>
+  </div>
+  <div class="btn-dialog" mat-dialog-actions>
+    <button class="btn btn-secondary" mat-button [mat-dialog-close]="false">
+      <p class="cancel"><strong>Cancelar</strong></p>
+    </button>
+    <button
+      class="{{ data.buttonClass }}"
+      mat-button
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+      (click)="onButtonClick()"
+    >
+      <p class="confirm">{{ data.buttonAction }}</p>
+    </button>
+  </div>
+</div>

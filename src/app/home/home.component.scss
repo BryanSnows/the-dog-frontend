@@ -1,0 +1,99 @@
+@import "../../scss/variables";
+
+.home-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 24px;
+}
+
+.home-content {
+  flex: 1 0 auto;
+  margin: 0 4% 0 4%;
+  min-height: 100%;
+}
+
+.open-menu {
+  min-width: 110px;
+}
+
+.mat-sidenav {
+  margin-top: 42px;
+  margin-bottom: 42px;
+  border-radius: 24px;
+}
+
+.open-close-btn {
+  z-index: 9995;
+  position: absolute;
+  top: 120px;
+  left: var(--left-value, 110px);
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}
+
+.mat-sidenav-nome {
+  display: none;
+}
+
+.open-close-btn-none {
+  display: none;
+}
+
+.tutorial-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  top: 190px;
+  left: -32px;
+
+  .tutorial-btn {
+    cursor: pointer;
+    border-radius: 100px;
+    border: none;
+    display: flex;
+    gap: 8px;
+    padding: 8px 16px;
+    z-index: 99999;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-content {
+    margin: 5px 10px;
+  }
+
+  .mat-sidenav {
+    width: 80px !important;
+  }
+}
+
+@media (min-width: 2048px) {
+  .open-menu {
+    min-width: 220px;
+  }
+
+  .home-content {
+    // Screen size less header, footer and margins
+    min-height: calc(100vh - 78px - 80px - 100px);
+  }
+}
+
+@media print {
+  .home-container {
+    background: #fff !important;
+  }
+
+  .home-content {
+    margin: 15px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

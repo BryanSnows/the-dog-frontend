@@ -1,0 +1,60 @@
+<mat-nav-list class="no-print">
+  <div class="menu-top">
+    <mat-list-item
+      class="menu-icon-list-item logo-icon"
+      [ngClass]="{ 'centralize-item': !menuOpen }"
+    >
+      <button (click)="goToModule('/welcome')" class="logo-btn">
+        <img
+          src="../../../../assets/images/logo-dark.svg"
+          alt="Angular Data Hub"
+          class="logo-btn-img logo-dark"
+        />
+      </button>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item
+      id="usersContainer"
+      (click)="goToModule('/users')"
+      routerLinkActive="active"
+      class="menu-list-item"
+      [ngClass]="{
+        'centralize-item': !menuOpen,
+        active: routeActive.startsWith('/users')
+      }"
+    >
+      <img src="../../../../assets/images/users/user-icon.svg" alt="Users" />
+      <p *ngIf="menuOpen">Usuários</p>
+    </mat-list-item>
+  </div>
+
+  <div class="menu-bottom">
+    <mat-list-item
+      id="profileContainer"
+      class="user-list-item"
+      [ngClass]="{ 'options-height': menuOpen }"
+      (click)="goToModule('/account')"
+      routerLinkActive="active"
+    >
+      <div class="user-list-content">
+        <div
+          class="img-container"
+          [ngClass]="{ 'img-container-margin': !menuOpen }"
+        >
+          <mat-icon>person</mat-icon>
+        </div>
+
+        <div class="text-container">
+          <p class="username-label">
+            {{ userName }}
+          </p>
+          <p class="role-label">
+            {{ userRole }}
+          </p>
+        </div>
+      </div>
+    </mat-list-item>
+  </div>
+</mat-nav-list>

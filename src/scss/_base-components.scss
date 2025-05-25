@@ -1,0 +1,295 @@
+.light-theme {
+  .btn {
+    background-color: $color-brand-light !important;
+    color: $color-text-secundary-light !important;
+    border: 1px solid $color-brand-light !important;
+
+    &:disabled {
+      background-color: $color-inactive-button-light !important;
+      color: $color-inactive-text-light !important;
+      border: 1px solid $color-inactive-button-light !important;
+      cursor: default;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $color-brand-hover-light !important;
+      color: $color-text-secundary-light !important;
+    }
+
+    &.labeling-active {
+      background-color: $color-brand-opacity-20-light !important;
+      border: 1px solid $color-brand-opacity-20-light !important;
+      color: $color-brand-light !important;
+    }
+
+    .icon-btn {
+      filter: brightness(0) saturate(100%) invert(99%) sepia(2%) saturate(61%)
+        hue-rotate(44deg) brightness(115%) contrast(83%);
+    }
+  }
+
+  .btn-secondary {
+    background-color: transparent !important;
+    border: 1px solid $color-brand-light !important;
+    color: $color-brand-light !important;
+
+    &:disabled {
+      background-color: transparent !important;
+      border: 1px solid $color-inactive-button-light !important;
+      color: $color-inactive-text-light !important;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $color-brand-opacity-20-light !important;
+      color: $color-brand-hover-light !important;
+    }
+
+    .icon-btn {
+      filter: brightness(0) saturate(100%) invert(55%) sepia(69%)
+        saturate(5895%) hue-rotate(13deg) brightness(106%) contrast(101%);
+    }
+  }
+
+  .filters {
+    p {
+      color: $color-support-grey-light;
+    }
+
+    .filters-legend {
+      color: $color-support-grey-light;
+    }
+
+    .filter-box {
+      label {
+        p {
+          color: $color-text-light;
+        }
+      }
+    }
+
+    .filter-box label.selected-filter {
+      background-color: $color-brand-light;
+
+      p {
+        color: $color-text-secundary-light;
+      }
+
+      &:hover {
+        background-color: $color-brand-light;
+      }
+    }
+
+    .filter-box label:hover {
+      background-color: $color-brand-opacity-20-light;
+    }
+
+    .clear-button {
+      background-color: transparent;
+      color: $color-brand-light;
+      border: 1px solid $color-brand-light;
+
+      &:hover {
+        background-color: $color-brand-opacity-20-light;
+      }
+    }
+  }
+}
+
+.dark-theme {
+  .btn {
+    background-color: $color-brand-dark !important;
+    color: $color-text-secundary-dark !important;
+    border: 1px solid $color-brand-dark !important;
+
+    &:disabled {
+      background-color: $color-inactive-button-dark !important;
+      color: $color-inactive-text-dark !important;
+      border: 1px solid $color-inactive-button-dark !important;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $color-brand-hover-dark !important;
+      color: $color-text-secundary-dark !important;
+    }
+
+    &.labeling-active {
+      background-color: $color-brand-opacity-20-dark !important;
+      border: 1px solid $color-brand-opacity-20-dark !important;
+      color: $color-brand-dark !important;
+    }
+
+    .icon-btn {
+      filter: brightness(0) saturate(100%) invert(18%) sepia(1%) saturate(0%)
+        hue-rotate(186deg) brightness(102%) contrast(90%);
+    }
+  }
+
+  .btn-secondary {
+    background-color: transparent !important;
+    border: 1px solid $color-brand-dark !important;
+    color: $color-brand-dark !important;
+
+    &:disabled {
+      background-color: transparent !important;
+      border: 1px solid $color-inactive-button-dark !important;
+      color: $color-inactive-text-dark !important;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $color-brand-opacity-20-dark !important;
+      color: $color-brand-hover-dark !important;
+    }
+
+    .icon-btn {
+      filter: brightness(0) saturate(100%) invert(63%) sepia(78%)
+        saturate(2581%) hue-rotate(360deg) brightness(103%) contrast(105%);
+    }
+  }
+
+  .filters {
+    p {
+      color: $color-support-grey-dark;
+    }
+
+    .filters-legend {
+      color: $color-support-grey-dark;
+    }
+
+    .filter-box {
+      label {
+        p {
+          color: $color-text-dark;
+        }
+      }
+    }
+
+    .filter-box label.selected-filter {
+      background-color: $color-brand-dark;
+
+      p {
+        color: $color-text-secundary-dark;
+      }
+
+      &:hover {
+        background-color: $color-brand-dark;
+      }
+    }
+
+    .filter-box label:hover {
+      background-color: $color-brand-opacity-20-dark;
+    }
+
+    .clear-button {
+      background-color: transparent;
+      color: $color-brand-dark;
+      border: 1px solid $color-brand-dark;
+
+      &:hover {
+        background-color: $color-brand-opacity-20-dark;
+      }
+    }
+  }
+}
+
+/*
+ * Button component
+ */
+
+.btn {
+  padding: 10px 20px !important;
+  border-radius: 30px !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .icon-btn {
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 665px) {
+  .btn {
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .btn {
+    width: 100%;
+  }
+}
+
+/*
+ * Select filter component
+ */
+
+.filters {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+
+  p {
+    font-size: 20px;
+  }
+
+  .filters-legend {
+    padding: 8px 8px 8px 16px;
+    font-size: 16px;
+  }
+
+  .filter-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    label {
+      border-radius: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 8px 8px 8px 16px;
+      cursor: pointer;
+      max-width: 100%;
+
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+
+  .filter-box label.selected-filter {
+    border-radius: 20px;
+  }
+
+  .filter-box label:hover {
+    border-radius: 20px;
+  }
+
+  .clear-button {
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 4px;
+    padding: 4px 8px;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/*
+ * Select dropdown component
+ */
+
+.mat-mdc-option {
+  margin: 0px 5px;
+  border-radius: 8px;
+}

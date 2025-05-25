@@ -1,0 +1,41 @@
+<div class="list-header-filter">
+  <div
+    class="search-container"
+    [ngClass]="{ 'disabled-container': disableBtn }"
+  >
+    <input
+      type="text"
+      [placeholder]="placeholder"
+      class="search-input"
+      #searchInput
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="onSearch()"
+      maxlength="100"
+      [disabled]="disableBtn"
+    />
+    <button
+      *ngIf="!searchTerm"
+      class="search-btn"
+      #searchBtn
+      [class.pressed]="isPressed"
+      [ngClass]="{ pressed: isPressed, 'disabled-search-btn': disableBtn }"
+      (mousedown)="isPressed = true"
+      (mouseup)="isPressed = false"
+      disabled
+    >
+      <mat-icon>search</mat-icon>
+    </button>
+    <button
+      *ngIf="searchTerm"
+      class="search-btn"
+      (click)="clearSearch()"
+      #searchBtn
+      [class.pressed]="isPressed"
+      [ngClass]="{ pressed: isPressed }"
+      (mousedown)="isPressed = true"
+      (mouseup)="isPressed = false"
+    >
+      <mat-icon>backspace</mat-icon>
+    </button>
+  </div>
+</div>

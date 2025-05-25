@@ -1,1 +1,24 @@
-<p>home works!</p>
+<button
+  class="open-close-btn"
+  [ngClass]="isFullscreen ? 'open-close-btn-none' : 'btn-open-menu'"
+  (click)="toggleMenu()"
+>
+  <mat-icon *ngIf="!menuOpen">chevron_right</mat-icon>
+  <mat-icon *ngIf="menuOpen">chevron_left</mat-icon>
+</button>
+
+<mat-sidenav-container class="home-container" autosize>
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    opened="true"
+    class="no-print"
+    [ngClass]="isFullscreen ? 'mat-sidenav-nome' : 'open-menu'"
+  >
+    <app-menu-list [menuOpen]="menuOpen"></app-menu-list>
+  </mat-sidenav>
+
+  <div class="home-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>
