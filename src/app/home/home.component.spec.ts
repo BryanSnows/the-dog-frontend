@@ -7,21 +7,39 @@ import {
 import { HomeComponent } from './home.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FullscreenService } from '../shared/services/fullscreen.service';
-import { MenuListComponent } from './layouts/menu-list/menu-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { of } from 'rxjs';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { of, Subject } from 'rxjs';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Router, NavigationEnd } from '@angular/router';
+
+@Component({
+  standalone: true,
+  template: '',
+})
+class DummyComponent {}
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
   let fullscreenService: FullscreenService;
 
+  beforeAll(() => {
+    jasmine.getEnv().allowRespy(true);
+  });
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, SharedModule, MatSidenavModule],
-      declarations: [HomeComponent, MenuListComponent],
+      imports: [
+        HomeComponent,
+        RouterTestingModule.withRoutes([
+          { path: 'test/path', component: DummyComponent },
+        ]),
+        SharedModule,
+        MatSidenavModule,
+        BrowserAnimationsModule,
+      ],
       providers: [
         {
           provide: FullscreenService,
@@ -61,11 +79,11 @@ describe('HomeComponent', () => {
   });
 
   it('should set isMobile based on window size', () => {
-    spyOnProperty(window, 'innerWidth').and.returnValue(500);
+    spyOnProperty(window, 'innerWidth', 'get').and.returnValue(500);
     component.onResize({ target: window });
     expect(component.isMobile).toBeTrue();
 
-    spyOnProperty(window, 'innerWidth').and.returnValue(1024);
+    spyOnProperty(window, 'innerWidth', 'get').and.returnValue(1024);
     component.onResize({ target: window });
     expect(component.isMobile).toBeFalse();
   });
@@ -75,9 +93,10 @@ describe('HomeComponent', () => {
   });
 
   it('should update routeActive and mainRouteActive on router event', fakeAsync(() => {
-    const router = TestBed.inject(RouterTestingModule);
-    component['router'].navigateByUrl('/test/path');
+    const router = TestBed.inject(Router);
+    router.navigateByUrl('/test/path');
     tick();
+
     expect(component.routeActive).toContain('/test/path');
   }));
 
@@ -86,12 +105,9 @@ describe('HomeComponent', () => {
       _getWidth: () => 200,
     } as any;
 
-    spyOn(document.documentElement.style, 'setProperty');
+    const setPropSpy = spyOn(document.documentElement.style, 'setProperty');
     component.getMenuWidth();
 
-    expect(document.documentElement.style.setProperty).toHaveBeenCalledWith(
-      '--left-value',
-      '209px'
-    );
+    expect(setPropSpy).toHaveBeenCalledWith('--left-value', '209px');
   });
 });

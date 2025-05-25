@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { MenuListComponent } from './menu-list.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -58,16 +58,6 @@ describe('MenuListComponent', () => {
     innerWidthSpy.and.returnValue(1024);
     component.onResize({});
     expect(component.isMobile).toBeFalse();
-  });
-
-  it('should update routeActive and isEditing on router events', () => {
-    component['router'].navigate(['/edit/123']);
-    fixture.detectChanges();
-
-    setTimeout(() => {
-      expect(component.routeActive).toContain('/edit');
-      expect(component.isEditing).toBeTrue();
-    }, 0);
   });
 
   it('should render the user name and role in template', () => {

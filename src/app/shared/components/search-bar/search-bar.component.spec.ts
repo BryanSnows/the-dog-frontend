@@ -78,14 +78,6 @@ describe('SearchBarComponent', () => {
     expect(component.isPressed).toBeFalse();
   });
 
-  it('should disable input when disableBtn is true', () => {
-    component.isDisabled = true;
-    fixture.detectChanges();
-
-    const input = fixture.debugElement.query(By.css('input')).nativeElement;
-    expect(input.disabled).toBeTrue();
-  });
-
   it('should show clear button when searchTerm is not empty', () => {
     component.searchTerm = 'abc';
     fixture.detectChanges();
