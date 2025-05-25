@@ -1,4 +1,4 @@
-# DogCrud 🐶
+# THE DOG FRONTEND
 
 Este projeto foi gerado usando o [Angular CLI](https://github.com/angular/angular-cli) versão 17.2
 
