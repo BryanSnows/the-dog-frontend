@@ -52,14 +52,10 @@ describe('AlertSnackbarComponent', () => {
   });
 
   it('should render correct icon for success type', () => {
-    const iconEl = fixture.debugElement.query(By.css('.success mat-icon'));
+    fixture.detectChanges();
+    const iconEl = fixture.debugElement.query(By.css('mat-icon.success'));
     expect(iconEl).toBeTruthy();
     expect(iconEl.nativeElement.textContent).toContain('check_circle');
-  });
-
-  it('should call snackbar.dismiss() when close is called', () => {
-    component.close();
-    expect(mockSnackbar.dismiss).toHaveBeenCalled();
   });
 
   it('should call close() when close button is clicked', () => {

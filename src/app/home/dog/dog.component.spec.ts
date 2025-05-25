@@ -11,6 +11,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { DogListComponent } from './dog-list/dog-list.component';
 import { DogService } from '../../shared/services/dog.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('DogListComponent', () => {
   let component: DogListComponent;
@@ -26,8 +27,12 @@ describe('DogListComponent', () => {
     const spy = jasmine.createSpyObj('DogService', ['findAll', 'delete']);
 
     await TestBed.configureTestingModule({
-      imports: [MatSnackBarModule, MatDialogModule],
-      declarations: [DogListComponent],
+      imports: [
+        DogListComponent,
+        MatSnackBarModule,
+        MatDialogModule,
+        BrowserAnimationsModule,
+      ],
       providers: [{ provide: DogService, useValue: spy }],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();

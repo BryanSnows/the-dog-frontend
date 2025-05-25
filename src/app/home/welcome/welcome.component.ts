@@ -9,8 +9,4 @@ import { SharedModule } from '../../shared/shared.module';
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.scss',
 })
-export class WelcomeComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-}
+export class WelcomeComponent {}

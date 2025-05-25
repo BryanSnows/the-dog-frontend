@@ -49,11 +49,13 @@ describe('MenuListComponent', () => {
   });
 
   it('should set isMobile correctly on resize', () => {
-    spyOnProperty(window, 'innerWidth').and.returnValue(500);
+    const innerWidthSpy = spyOnProperty(window, 'innerWidth', 'get');
+
+    innerWidthSpy.and.returnValue(500);
     component.onResize({});
     expect(component.isMobile).toBeTrue();
 
-    spyOnProperty(window, 'innerWidth').and.returnValue(1024);
+    innerWidthSpy.and.returnValue(1024);
     component.onResize({});
     expect(component.isMobile).toBeFalse();
   });
