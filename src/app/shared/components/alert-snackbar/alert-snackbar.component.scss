@@ -1,0 +1,51 @@
+@import '../../../../scss/variables';
+
+.alert-snack-bar {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 16px;
+}
+
+.icon-container {
+  display: flex;
+  border-radius: 8px;
+  height: 36px;
+  width: 36px;
+  padding: 5px;
+
+  .error-icon {
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+  }
+
+  mat-icon {
+    &.success {
+      filter: brightness(0) saturate(100%) invert(21%) sepia(53%) saturate(4556%) hue-rotate(136deg) brightness(97%) contrast(101%);
+    }
+
+    &.error {
+      filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(2%) hue-rotate(302deg) brightness(107%) contrast(101%);
+    }
+
+    &.alert {
+      filter: brightness(0) saturate(100%) invert(57%) sepia(81%) saturate(4478%) hue-rotate(5deg) brightness(98%) contrast(102%);
+    }
+  }
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 16px;
+}
+
+.snack-bar-btn {
+  border: none !important;
+  background-color: transparent !important;
+}

@@ -1,0 +1,22 @@
+<div class="alert-snack-bar">
+  <div class="icon-container">
+    @if (type === 'error') {
+    <div class="error-icon">
+      <mat-icon class="error">warning_amber</mat-icon>
+    </div>
+    } @if (type === 'success') {
+    <mat-icon class="success">check_circle</mat-icon>
+    } @if (type === 'alert') {
+    <mat-icon class="alert">info</mat-icon>
+    }
+  </div>
+  <div matSnackBarLabel>
+    <p class="title">{{ title }}</p>
+    <p class="subtitle">{{ subtitle }}</p>
+  </div>
+  <div matSnackBarActions>
+    <button matSnackBarAction (click)="close()" class="snack-bar-btn">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>

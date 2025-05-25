@@ -1,0 +1,9 @@
+.min-heigth {
+  height: unset;
+}
+
+@media (min-width: 1200px) {
+  .min-heigth {
+    height: 100% !important;
+  }
+}

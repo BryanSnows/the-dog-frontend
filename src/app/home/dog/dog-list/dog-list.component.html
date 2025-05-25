@@ -1,0 +1,45 @@
+<section class="list-component">
+  <header>
+    <div class="row list-header">
+      <div class="title">
+        <h5>Lista de dogs</h5>
+      </div>
+    </div>
+    <div class="row search-filter">
+      <div class="search">
+        <app-search-bar
+          (search)="searchDogs($event)"
+          [isDisabled]="!dogs || dogs.length === 0"
+          [placeholder]="'Pesquisar'"
+        ></app-search-bar>
+      </div>
+    </div>
+  </header>
+
+  <div *ngIf="!isLoading" class="list-container">
+    <div *ngIf="dogs.length === 0" class="empty-list">
+      <app-no-results
+        [titleMessage]="titleMessage"
+        [secMessage]="secMessage"
+      ></app-no-results>
+    </div>
+    <div *ngFor="let dog of dogs" class="list-item">
+      <div class="list-info">
+        <div class="list-info-section-left">
+          <strong>{{ dog.name }}</strong>
+          <div>{{ dog.breed_group || "Unknown group" }}</div>
+          <div class="hide-mobile">{{ dog.temperament }}</div>
+        </div>
+        <button class="option-button" (click)="openConfirmationDialog(dog)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <app-pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="setPage($event)"
+  ></app-pagination>
+</section>
