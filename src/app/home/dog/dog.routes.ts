@@ -1,7 +1,6 @@
 import { Route } from '@angular/router';
 import { DogComponent } from './dog.component';
 import { DogListComponent } from './dog-list/dog-list.component';
-// import { UserFormComponent } from './user-form/user-form.component';
 
 export const dogRoute: Route = {
   path: 'dogs',
@@ -16,12 +15,12 @@ export const dogRoute: Route = {
     },
     // {
     //   path: 'register',
-    //   component: UserFormComponent,
+    //   component: DogFormComponent,
 
     // },
     // {
     //   path: 'edit/:id',
-    //   component: UserFormComponent,
+    //   component: DogFormComponent,
 
     // },
   ],
