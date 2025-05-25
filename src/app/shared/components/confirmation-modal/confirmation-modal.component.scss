@@ -1,0 +1,64 @@
+@import '../../../../scss/variables';
+
+.modal-box {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+
+  .modal-title {
+    margin-top: 15px;
+    font-size: 24px;
+  }
+
+  .image-container {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-left: 8%;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-top: 15px;
+  }
+
+  img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+  }
+
+  .message {
+    margin-top: 15px;
+    font-size: 16px;
+  }
+
+  .btn-dialog {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+
+  button {
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    width: 140px;
+  }
+
+  .confirm {
+    font-size: 16px;
+  }
+
+  .cancel {
+    font-size: 16px;
+  }
+}

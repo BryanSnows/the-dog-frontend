@@ -1,0 +1,40 @@
+<div class="pagination">
+  <button
+    class="arrow-button"
+    [disabled]="currentPage <= 0"
+    (click)="setPage(0)"
+  >
+    <mat-icon>first_page</mat-icon>
+  </button>
+  <button
+    class="arrow-button"
+    [disabled]="currentPage <= 0"
+    (click)="setPage(currentPage - 1)"
+  >
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <button
+    *ngFor="let page of visiblePages"
+    (click)="setPage(page)"
+    [ngClass]="{ active: page === currentPage, 'dots-btn': page === -1 }"
+    class="page-button"
+    [disabled]="page === -1"
+  >
+    <span *ngIf="page === -1">...</span>
+    <p *ngIf="page !== -1">{{ page + 1 }}</p>
+  </button>
+  <button
+    class="arrow-button"
+    [disabled]="currentPage >= totalPages - 1"
+    (click)="setPage(currentPage + 1)"
+  >
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+  <button
+    class="arrow-button"
+    [disabled]="currentPage >= totalPages - 1"
+    (click)="setPage(totalPages - 1)"
+  >
+    <mat-icon>last_page</mat-icon>
+  </button>
+</div>

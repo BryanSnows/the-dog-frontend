@@ -1,0 +1,51 @@
+@import '../../../../scss/variables';
+
+.pagination {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+
+  .page-button {
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    p {
+      width: 100%;
+    }
+  }
+
+  .arrow-button {
+    height: 32px;
+    width: 32px;
+    padding: 0px;
+    cursor: pointer;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:disabled {
+      cursor: not-allowed;
+      border: none;
+    }
+
+    &:not(:disabled) {
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .dots-btn {
+    cursor: default !important;
+  }
+}

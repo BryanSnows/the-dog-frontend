@@ -1,0 +1,51 @@
+@import '../../../../scss/variables';
+
+.list-header-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // width: 190%;
+  gap: 16px;
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 30px;
+
+    &:hover:not(.disabled-container) {
+      box-shadow: 0px 3px 6px #00000026;
+    }
+
+    .search-input {
+      padding: 12px 20px;
+      // width: 100%;
+      border-radius: 30px 0 0 30px;
+      border-right: none !important;
+      outline: none;
+      font-size: 16px;
+      flex: 1;
+    }
+
+    .search-btn {
+      padding: 10px 20px;
+      border-left: none !important;
+      border-radius: 0 30px 30px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.disabled-search-btn {
+        cursor: default;
+      }
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .list-header-filter {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+}
