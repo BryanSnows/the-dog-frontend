@@ -4,7 +4,6 @@
 // Plus imports for other components in your app.
 @import "./scss/palette";
 @import "./scss/variables";
-@import "./scss/theme-light";
 @import "./scss/theme-dark";
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -15,12 +14,6 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-
-// Define a paleta de cores para o tema claro
-$light-primary: mat.define-palette($primary-palette-light);
-$light-accent: mat.define-palette($primary-palette-light, A200, A100, A400);
-$light-warn: mat.define-palette($warn-palette-light);
-
 // Define a paleta de cores para o tema escuro
 $dark-primary: mat.define-palette($primary-palette-dark);
 $dark-accent: mat.define-palette($primary-palette-dark, A200, A100, A400);
@@ -28,16 +21,6 @@ $dark-warn: mat.define-palette($warn-palette-dark);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-
-$light-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $light-primary,
-      accent: $light-accent,
-      warn: $light-warn,
-    ),
-  )
-);
 
 $dark-theme: mat.define-dark-theme(
   (
@@ -52,11 +35,6 @@ $dark-theme: mat.define-dark-theme(
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-
-@include mat.all-component-themes($light-theme);
-/* .light-theme {
-  @include mat.all-component-themes($light-theme);
-} */
 
 .dark-theme {
   @include mat.all-component-colors($dark-theme);
@@ -139,20 +117,6 @@ mat-form-field {
 //////////////////////////////////////////
 
 /*
- * Mat check box
- */
-
-.mdc-checkbox
-  .mdc-checkbox__native-control:enabled:checked
-  ~ .mdc-checkbox__background {
-  .mdc-checkbox__checkmark {
-    color: #ffffff !important;
-  }
-}
-
-//////////////////////////////////////////
-
-/*
  * Mat list
  */
 
@@ -213,65 +177,6 @@ mat-form-field {
   border-right-width: 0px !important;
 }
 
-.board-menu-register {
-  .mdc-list-item .mat-mdc-list-item-unscoped-content {
-    p {
-      width: 100px;
-    }
-
-    img {
-      width: 30px;
-      height: 30px;
-    }
-  }
-
-  .mdc-list-item .mat-mdc-list-item-unscoped-content {
-    padding: 10px 16px;
-  }
-
-  .mat-mdc-nav-list .mat-mdc-list-item:hover {
-    .mat-mdc-list-item-focus-overlay {
-      background-color: transparent !important;
-    }
-
-    /* p {
-      color: $color-brand-light !important;
-    } */
-
-    img {
-      filter: brightness(0) saturate(100%) invert(42%) sepia(31%)
-        saturate(3894%) hue-rotate(9deg) brightness(102%) contrast(102%);
-      max-width: 30px !important;
-      max-height: 30px !important;
-    }
-  }
-
-  .board-menu {
-    .mdc-list-item.mdc-list-item--disabled {
-      p {
-        opacity: 1 !important;
-      }
-
-      img {
-        opacity: 1;
-        max-width: 30px !important;
-        max-height: 30px !important;
-      }
-    }
-  }
-
-  .mat-mdc-nav-list .mat-mdc-list-item.active {
-    .mat-mdc-list-item-unscoped-content {
-      padding: 16px !important;
-      border-radius: 12px;
-    }
-
-    p {
-      width: 100px !important;
-    }
-  }
-}
-
 @media (max-width: 420px) {
   .user-profile .mdc-form-field {
     flex-direction: column !important;
@@ -281,66 +186,6 @@ mat-form-field {
 /* .mdc-list-item__content {
   width: 60px;
 } */
-
-//////////////////////////////////////////
-
-/*
- * Mat Tab
-*/
-
-.board-menu-register {
-  .mat-mdc-tab-header {
-    display: none !important;
-  }
-
-  .mat-mdc-tab-body-wrapper {
-    flex: 1;
-  }
-
-  .mat-mdc-tab-body {
-    display: flex;
-  }
-
-  .mat-mdc-tab-body-content {
-    display: flex;
-    flex: 1;
-  }
-
-  .mat-mdc-tab-body-content {
-    overflow-y: hidden !important;
-  }
-}
-
-.training-tab-content {
-  .mat-mdc-tab-header {
-    display: inline !important;
-  }
-
-  .mat-mdc-tab-body-wrapper {
-    margin-top: 16px;
-  }
-
-  .mat-mdc-tab-label-container {
-    border-bottom-style: solid !important;
-    border-bottom-width: 0.5px;
-  }
-}
-
-.dashboard-container {
-  .mat-mdc-tab-body-wrapper {
-    margin-top: 24px;
-  }
-
-  .empty-dashboard .mat-mdc-tab-body-wrapper {
-    flex: 1;
-  }
-
-  .mat-mdc-tab-body-content {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-}
 
 //////////////////////////////////////////
 
@@ -465,49 +310,6 @@ mat-form-field {
   margin-left: -16px;
 }
 
-.fullscreen-container {
-  .canvas-container {
-    overflow-y: auto !important;
-    width: 100% !important;
-    position: relative !important;
-
-    canvas {
-      top: 0% !important;
-      left: 0% !important;
-      transform: translate(5%) !important;
-    }
-  }
-
-  canvas {
-    min-height: 100% !important;
-  }
-}
-
-@media (min-width: 1024px) {
-  .fullscreen-container {
-    .canvas-container {
-      canvas {
-        top: 60% !important;
-        left: 60% !important;
-        transform: translate(-60%, -60%) !important;
-      }
-    }
-  }
-}
-
-.canvas-container {
-  // width: 100% !important;
-  // height: 100% !important;
-  /* max-width: 100% !important;
-  overflow-x: auto !important;
-  overflow-y: hidden !important; */
-}
-
-/* .canvas-container canvas {
-  overflow-x: scroll !important;
-  min-width: 100% !important;
-} */
-
 .labeling-tab-content {
   .search-filter {
     .mat-mdc-icon-button .mat-mdc-button-touch-target {
@@ -598,76 +400,6 @@ ngx-mat-color-collection,
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-}
-
-//////////////////////////////////////////
-
-/*
- * Datepicker
-*/
-
-.cdk-overlay-pane .mat-datepicker-popup {
-  top: 50px !important; /* Adjust the vertical position */
-  left: 20px !important; /* Adjust the horizontal position */
-  /* You can add more styles here, like background color, border, etc. */
-}
-
-.mat-mdc-icon-button.cdk-program-focused
-  .mat-mdc-button-persistent-ripple::before {
-  opacity: 1;
-}
-
-.mat-datepicker-actions {
-  justify-content: space-between !important;
-}
-
-.mat-datepicker-content {
-  border-radius: 16px !important;
-}
-
-.inspection-list,
-.dashboard-container {
-  .period-filter {
-    .mat-datepicker-toggle {
-      padding: 0px !important;
-      height: 25px;
-
-      button {
-        padding: 0px !important;
-        width: 24px !important;
-        height: 24px !important;
-      }
-    }
-
-    .mat-mdc-icon-button .mat-mdc-button-touch-target {
-      top: 55%;
-      height: 40px;
-      left: -85px;
-      width: 235px;
-    }
-
-    .mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before {
-      background-color: transparent;
-    }
-
-    .mat-ripple-element {
-      display: none !important;
-    }
-  }
-}
-
-//////////////////////////////////////////
-
-/*
- * Mat-Select
-*/
-
-.canvas {
-  .details-container {
-    .mat-mdc-form-field-subscript-wrapper {
-      display: none !important;
-    }
-  }
 }
 
 //////////////////////////////////////////

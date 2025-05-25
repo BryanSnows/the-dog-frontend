@@ -11,189 +11,6 @@
 
 //////////////////////////////////////////
 
-.light-theme {
-  .training-card {
-    &:hover {
-      border-color: $color-brand-hover-light;
-    }
-
-    &.selected {
-      border-color: $color-brand-light;
-    }
-
-    .status-indicator {
-      border: $color-line-light 1px solid;
-    }
-
-    &:active {
-      border-color: $color-brand-light;
-    }
-  }
-
-  .list-container {
-    border: 1px solid $color-line-light;
-
-    .list-info {
-      border: 1px solid $color-line-light;
-    }
-
-    .list-info-section {
-      .list-info-section-name {
-        color: $color-text-light !important;
-      }
-
-      div {
-        color: $color-support-grey-light;
-      }
-    }
-
-    .list-item {
-      border-color: $color-line-light;
-
-      &.ng {
-        border: solid 1px $color-error-light;
-      }
-
-      .list-info:not(.list-info-skeleton) {
-        &:hover {
-          background-color: $color-input-light;
-        }
-
-        &.selected {
-          border-color: $color-brand-light;
-        }
-
-        .status-indicator {
-          border: $color-line-light 1px solid;
-        }
-
-        &:active {
-          border-color: $color-brand-light;
-        }
-      }
-
-      .option-button {
-        z-index: 1;
-        background-color: $color-box-light;
-        border-color: $color-brand-opacity-20-light;
-
-        mat-icon {
-          filter: brightness(0) saturate(100%) invert(57%) sepia(81%)
-            saturate(4478%) hue-rotate(5deg) brightness(98%) contrast(102%);
-        }
-
-        &:hover {
-          background-color: $color-brand-hover-light;
-
-          mat-icon {
-            filter: brightness(0) saturate(100%) invert(100%);
-          }
-        }
-
-        &:focus {
-          background-color: $color-brand-pressing-light;
-
-          mat-icon {
-            filter: brightness(0) saturate(100%) invert(100%);
-          }
-        }
-      }
-
-      .options-menu {
-        background-color: $color-box-light;
-        border: 1px solid $color-line-light;
-
-        button {
-          color: $color-text-light;
-        }
-      }
-
-      .options-menu button:hover {
-        background-color: $color-brand-opacity-20-light;
-      }
-    }
-  }
-
-  .main-list-container {
-    border: 1px solid $color-line-light !important;
-
-    .select-button {
-      border: 1px solid #cdc9c9;
-      background-color: $color-box-light;
-      color: $color-text-light;
-      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.15);
-
-      &:hover:not(:disabled) {
-        background-color: #fce2cc;
-        box-shadow: 0px 5px 4px #8f8f8f29;
-      }
-
-      &:focus {
-        background-color: $color-box-light;
-        border: 1px solid $color-brand-light;
-        box-shadow: 0px 5px 4px #8f8f8f29;
-      }
-
-      &:disabled:not(.select-button-active) {
-        background-color: $color-inactive-button-light !important;
-        border: 1px solid $color-inactive-button-light !important;
-        transition: none !important;
-        box-shadow: none !important;
-      }
-
-      &.select-button-active {
-        background-color: $color-brand-light !important;
-        border: 1px solid $color-brand-light !important;
-
-        .filters-legend {
-          color: $color-box-light !important;
-        }
-
-        img {
-          filter: brightness(0) saturate(100%) invert(99%) sepia(15%)
-            saturate(169%) hue-rotate(264deg) brightness(115%) contrast(100%);
-        }
-      }
-    }
-
-    .status-box {
-      background-color: $color-box-light;
-      border: 1px solid #cdc9c9;
-    }
-
-    .result-box {
-      background-color: $color-box-light;
-      border: 1px solid #cdc9c9;
-    }
-
-    .defect-box {
-      background-color: $color-box-light;
-      border: 1px solid #cdc9c9;
-    }
-
-    .ref-box {
-      background-color: $color-box-light;
-      border: 1px solid #cdc9c9;
-    }
-
-    .container-subtitle {
-      color: $color-support-grey-light;
-    }
-  }
-
-  .list-info-section-role {
-    img {
-      filter: brightness(0) saturate(100%) invert(20%) sepia(5%) saturate(25%)
-        hue-rotate(334deg) brightness(98%) contrast(92%);
-    }
-  }
-
-  .form-container {
-    border: 1px solid $color-line-light !important;
-  }
-}
-
 .dark-theme {
   .training-card {
     &:hover {
@@ -379,7 +196,6 @@
 */
 
 .list-container {
-  // margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -397,7 +213,6 @@
   }
 
   .list-item {
-    // padding: 10px;
     border-radius: 8px;
 
     .list-info {
@@ -484,14 +299,6 @@
   }
 }
 
-.training-info {
-  .list-container {
-    &.empty-list {
-      justify-content: center !important;
-    }
-  }
-}
-
 .main-list-container {
   min-height: 100%;
   // min-height: calc(100vh - 204px);
@@ -547,35 +354,6 @@
       cursor: default !important;
     }
   }
-
-  .status-box {
-    position: absolute;
-    z-index: 1000;
-    top: 50px;
-    width: 150px;
-    height: 150px;
-    border-radius: 12px;
-    padding: 16px;
-    overflow: hidden;
-    gap: 8px;
-
-    @media (max-width: 1242px) {
-      width: 150px;
-      height: 150px;
-      left: 110px;
-      margin-top: 5px;
-      overflow: hidden;
-    }
-  }
-}
-
-.training-tab-content {
-  .list-item:last-child {
-    .options-menu {
-      top: calc(100% - 55px);
-      right: 60px;
-    }
-  }
 }
 
 @media (max-width: 520px) {
@@ -621,21 +399,6 @@
   }
 }
 
-@media (max-width: 1180px) {
-  .inspection-list {
-    .search-filter {
-      flex-direction: column;
-
-      .filters {
-        // flex-direction: column;
-        margin-top: 16px;
-        justify-content: flex-start;
-        align-items: center !important;
-      }
-    }
-  }
-}
-
 /*
  * Module container
 */
@@ -657,7 +420,6 @@
 
 .form-container {
   min-height: 100%;
-  // min-height: calc(100vh - 204px);
   border-radius: 24px;
   padding: 48px 32px;
   display: flex;
@@ -701,7 +463,6 @@
 @media (max-width: 1180px) {
   .form-container {
     height: 100% !important;
-    // margin-bottom: 42px !important;
   }
 }
 
@@ -724,9 +485,5 @@
 }
 
 .mat-drawer-inner-container {
-  overflow: hidden !important;
-}
-
-.board-menu-register .mat-mdc-tab-body-content {
   overflow: hidden !important;
 }

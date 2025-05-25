@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>{{ data.name }}</h2>
+
+<div class="modal-content">
+  <img
+    [src]="
+      data.reference_image_id
+        ? 'https://cdn2.thedogapi.com/images/' +
+          data.reference_image_id +
+          '.jpg'
+        : 'assets/images/default-dog.png'
+    "
+    alt="{{ data.name }}"
+    width="200"
+    height="200"
+    style="border-radius: 8px; object-fit: cover"
+  />
+
+  <div class="info">
+    <p><strong>Origem:</strong> {{ data.origin || "Desconhecida" }}</p>
+    <p><strong>Grupo:</strong> {{ data.breed_group || "Não classificado" }}</p>
+    <p><strong>Expectativa de vida:</strong> {{ data.life_span }}</p>
+    <p>
+      <strong>Peso:</strong> {{ data.weight?.metric }} kg |
+      <strong>Altura:</strong> {{ data.height?.metric }} cm
+    </p>
+    <p>
+      <strong>Temperamento:</strong> {{ data.temperament || "Desconhecido" }}
+    </p>
+  </div>
+</div>
+
+<div class="actions">
+  <button mat-button color="primary" (click)="close()">Fechar</button>
+</div>

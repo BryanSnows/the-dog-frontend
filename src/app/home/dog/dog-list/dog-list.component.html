@@ -1,0 +1,65 @@
+<section class="list-component">
+  <header>
+    <div class="row list-header">
+      <div class="title">
+        <h5>Lista de dogs</h5>
+      </div>
+    </div>
+    <div class="row search-filter">
+      <div class="search">
+        <app-search-bar
+          (search)="searchDogs($event)"
+          [placeholder]="'Pesquisar'"
+        ></app-search-bar>
+      </div>
+    </div>
+  </header>
+
+  <div *ngIf="!isLoading" class="list-container">
+    <div *ngIf="dogs.length === 0" class="empty-list">
+      <app-no-results
+        [titleMessage]="titleMessage"
+        [secMessage]="secMessage"
+      ></app-no-results>
+    </div>
+
+    <div *ngFor="let dog of dogs" class="list-item">
+      <div class="list-info">
+        <img
+          *ngIf="dog.reference_image_id"
+          [src]="
+            'https://cdn2.thedogapi.com/images/' +
+            dog.reference_image_id +
+            '.jpg'
+          "
+          alt="{{ dog.name }}"
+          width="80"
+          height="80"
+          style="border-radius: 8px; object-fit: cover"
+        />
+
+        <div class="list-info-section">
+          <strong>{{ dog.name }}</strong>
+          <div>
+            <span><b>Origem:</b> {{ dog.origin || "Desconhecida" }}</span>
+          </div>
+        </div>
+
+        <div class="list-actions">
+          <button class="option-button" (click)="openConfirmationDialog(dog)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button class="option-button" (click)="openDetailsModal(dog)">
+            <mat-icon>info</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="setPage($event)"
+  ></app-pagination>
+</section>
