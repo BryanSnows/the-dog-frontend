@@ -9,7 +9,6 @@
       <div class="search">
         <app-search-bar
           (search)="searchDogs($event)"
-          [isDisabled]="!dogs || dogs.length === 0"
           [placeholder]="'Pesquisar'"
         ></app-search-bar>
       </div>

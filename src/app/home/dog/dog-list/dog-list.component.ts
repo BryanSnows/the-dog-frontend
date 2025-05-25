@@ -19,11 +19,12 @@ export class DogListComponent implements OnInit {
   dogs: any[] = [];
   isLoading = false;
   searchTimeout: any;
-  currentPage = 1;
+  currentPage = 0;
   totalPages = 1;
   filters: any = {};
-  titleMessage: string = 'general.no-result-title';
-  secMessage: string = 'general.no-result-message';
+  titleMessage: string = 'Não há resultados para essa busca';
+  secMessage: string =
+    'Verifique se há algum erro de digitação e tente novamente';
   allDogs: any[] = [];
 
   constructor(

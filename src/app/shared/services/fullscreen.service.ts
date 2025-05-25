@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class FullscreenService {
-  private fullscreenSubject = new BehaviorSubject<boolean>(false);
+  private readonly fullscreenSubject = new BehaviorSubject<boolean>(false);
   fullscreen$ = this.fullscreenSubject.asObservable();
 
   setFullscreen(value: boolean) {
