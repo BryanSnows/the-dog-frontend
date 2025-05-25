@@ -1,12 +1,12 @@
 import { Route } from '@angular/router';
-import { UserComponent } from './user.component';
+import { DogComponent } from './dog.component';
 // import { UserFormComponent } from './user-form/user-form.component';
 // import { UserListComponent } from './user-list/user-list.component';
 // import { MenuAccessRoles } from '../../shared';
 
-export const userRoute: Route = {
-  path: 'users',
-  component: UserComponent,
+export const dogRoute: Route = {
+  path: 'dogs',
+  component: DogComponent,
   data: {
     authorities: [],
   },

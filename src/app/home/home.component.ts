@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.loggedUser = 'ADMIN';
+    this.loggedUser = 'Usuário';
   }
 
   ngAfterViewInit() {

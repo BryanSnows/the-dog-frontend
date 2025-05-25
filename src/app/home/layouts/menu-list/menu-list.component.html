@@ -7,7 +7,7 @@
       <button (click)="goToModule('/welcome')" class="logo-btn">
         <img
           src="../../../../assets/images/logo-dark.svg"
-          alt="Angular Data Hub"
+          alt="The Dog"
           class="logo-btn-img logo-dark"
         />
       </button>
@@ -17,16 +17,16 @@
 
     <mat-list-item
       id="usersContainer"
-      (click)="goToModule('/users')"
+      (click)="goToModule('/dogs')"
       routerLinkActive="active"
       class="menu-list-item"
       [ngClass]="{
         'centralize-item': !menuOpen,
-        active: routeActive.startsWith('/users')
+        active: routeActive.startsWith('/dogs')
       }"
     >
-      <img src="../../../../assets/images/users/user-icon.svg" alt="Users" />
-      <p *ngIf="menuOpen">Usuários</p>
+      <img src="../../../../assets/images/users/user-icon.svg" alt="Dogs" />
+      <p *ngIf="menuOpen">Dogs</p>
     </mat-list-item>
   </div>
 

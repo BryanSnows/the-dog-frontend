@@ -1,13 +1,15 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
-import { userRoute } from './user/user.routes';
+import { dogRoute } from './dog/dog.routes';
+import { welcomeRoute } from './welcome/welcome.routes';
 
 export const homeRoute: Routes = [
   {
     path: '',
     component: HomeComponent,
     children: [
-      userRoute,
+      welcomeRoute,
+      dogRoute,
       {
         path: '',
         redirectTo: '/welcome',

@@ -26,8 +26,7 @@ export class MenuListComponent implements OnInit, OnDestroy {
   isMobile: boolean = false;
   isEditing: boolean = false;
   routeActive!: string;
-  formHasChanged: any;
-  inspectionInProgress: any;
+
   private readonly subscriptions = new Subscription();
 
   @Input() menuOpen!: boolean;
@@ -54,54 +53,12 @@ export class MenuListComponent implements OnInit, OnDestroy {
 
   getUserData() {
     const userImagePath = './../../../assets/images/icons/profile-icon.svg';
-
-    this.userName = 'ADMIN';
+    this.userName = 'Usuário';
     this.userRole = 'ADMIN';
     this.userImage = userImagePath;
   }
 
   goToModule(menu: string) {
-    if (
-      this.routeActive.includes('/inspections/new') &&
-      this.inspectionInProgress
-    ) {
-      const dialogRef = this.dialog.open(ConfirmationModalComponent, {
-        width: '400px',
-        data: {
-          title: 'Deseja sair da página?',
-          message:
-            'Ao voltar para a lista, sua inspeção continuará em progresso.',
-          iconPath: '../../../../assets/images/modal-icon.svg',
-          buttonClass: 'btn-modal-confirm',
-          buttonAction: 'Confirmar',
-        },
-      });
-
-      dialogRef.afterClosed().subscribe((result) => {
-        if (result) {
-          this.router.navigate([`${menu}`]);
-        }
-      });
-    } else if (!this.isEditing || (this.isEditing && !this.formHasChanged)) {
-      this.router.navigate([`${menu}`]);
-    } else {
-      const dialogRef = this.dialog.open(ConfirmationModalComponent, {
-        width: '400px',
-        data: {
-          title: 'Cancelar ação?',
-          message:
-            'Tem certeza que deseja cancelar? Os dados alterados não serão salvos.',
-          iconPath: '../../../../assets/images/modal-icon.svg',
-          buttonClass: 'btn-modal-confirm',
-          buttonAction: 'Confirmar',
-        },
-      });
-
-      dialogRef.afterClosed().subscribe((result) => {
-        if (result) {
-          this.router.navigate([`${menu}`]);
-        }
-      });
-    }
+    this.router.navigate([`${menu}`]);
   }
 }

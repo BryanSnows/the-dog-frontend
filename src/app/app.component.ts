@@ -14,7 +14,7 @@ import { Subject } from 'rxjs';
 export class AppComponent implements OnInit, OnDestroy {
   private readonly ngUnsubscribe$ = new Subject<void>();
 
-  title = 'angularDataHub-frontend';
+  title = 'theDog-frontend';
   loading = false;
   routeActive: string = '';
   theme!: string;
