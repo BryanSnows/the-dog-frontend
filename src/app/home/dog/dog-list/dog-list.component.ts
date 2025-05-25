@@ -55,7 +55,7 @@ export class DogListComponent implements OnInit {
   deleteDog(dog: any) {
     this.dogService.delete(dog.id).subscribe(() => {
       this.dogs = this.dogs.filter((d) => d.id !== dog.id);
-      this.showSnackbar('dog.deleted', 'dog.deleted-success', 'success');
+      this.showSnackbar('Dog deletado', 'Dog deletado com sucesso', 'success');
     });
   }
 
@@ -95,7 +95,7 @@ export class DogListComponent implements OnInit {
   }
 
   openConfirmationDialog(dog: any): void {
-    const title = 'Excluir usuário' + '?';
+    const title = 'Excluir dog' + '?';
     const message =
       'Tem certeza que deseja excluir este dog? Essa ação não poderá ser desfeita.';
     const iconPath = '../../../../assets/images/delete-modal-icon.svg';
