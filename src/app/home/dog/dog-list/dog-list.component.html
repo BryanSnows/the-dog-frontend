@@ -42,21 +42,16 @@
         <div class="list-info-section">
           <strong>{{ dog.name }}</strong>
           <div>
-            <span><b>Origem:</b> {{ dog.origin || "Desconhecida" }}</span> |
-            <span
-              ><b>Grupo:</b> {{ dog.breed_group || "Não classificado" }}</span
-            >
-          </div>
-          <div><b>Expectativa de vida:</b> {{ dog.life_span }}</div>
-          <div>
-            <b>Peso:</b> {{ dog.weight?.metric }} kg | <b>Altura:</b>
-            {{ dog.height?.metric }} cm
+            <span><b>Origem:</b> {{ dog.origin || "Desconhecida" }}</span>
           </div>
         </div>
 
         <div class="list-actions">
           <button class="option-button" (click)="openConfirmationDialog(dog)">
             <mat-icon>delete</mat-icon>
+          </button>
+          <button class="option-button" (click)="openDetailsModal(dog)">
+            <mat-icon>info</mat-icon>
           </button>
         </div>
       </div>

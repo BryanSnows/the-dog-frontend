@@ -23,6 +23,7 @@ import { NoResultsComponent } from './components/no-results/no-results.component
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
+import { DogDetailsModalComponent } from './components/dog-details/dog-details-modal.component';
 
 @NgModule({
   imports: [
@@ -49,6 +50,7 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
     MatMenuModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    DogDetailsModalComponent,
   ],
   declarations: [],
   exports: [
@@ -76,6 +78,7 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
     MatMenuModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    DogDetailsModalComponent,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }],
 })

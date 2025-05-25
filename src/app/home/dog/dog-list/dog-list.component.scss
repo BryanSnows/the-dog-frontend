@@ -122,6 +122,11 @@
     height: 120%;
     border-radius: 12px;
   }
+  .list-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
   cursor: pointer;
 }
 

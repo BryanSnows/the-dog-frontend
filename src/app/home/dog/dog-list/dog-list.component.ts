@@ -6,6 +6,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { ConfirmationModalComponent } from '../../../shared/components/confirmation-modal/confirmation-modal.component';
 import { AlertSnackbarComponent } from '../../../shared/components/alert-snackbar/alert-snackbar.component';
 import { DogService } from '../../../shared/services/dog.service';
+import { DogDetailsModalComponent } from '../../../shared/components/dog-details/dog-details-modal.component';
 
 @Component({
   selector: 'app-dog-list',
@@ -83,6 +84,13 @@ export class DogListComponent implements OnInit {
         this.isLoading = false;
         this.showSnackbar('error.error', 'error.load-error', 'error');
       },
+    });
+  }
+
+  openDetailsModal(dog: any): void {
+    this.dialog.open(DogDetailsModalComponent, {
+      width: '400px',
+      data: dog,
     });
   }
 
