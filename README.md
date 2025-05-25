@@ -45,6 +45,15 @@ Para iniciar o servidor local:
 ng serve
 ```
 
+## 🐳 Rodando com Docker
+
+1. Build e execute o container:
+
+```bash
+docker-compose up --build
+
+```
+
 Depois, acesse [http://localhost:4200/](http://localhost:4200/). O app recarregará automaticamente ao salvar arquivos.
 
 ![alt text](./src/assets/images/readme/the-dog-welcome.png)
