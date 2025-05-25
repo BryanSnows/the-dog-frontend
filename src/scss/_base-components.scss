@@ -1,100 +1,3 @@
-.light-theme {
-  .btn {
-    background-color: $color-brand-light !important;
-    color: $color-text-secundary-light !important;
-    border: 1px solid $color-brand-light !important;
-
-    &:disabled {
-      background-color: $color-inactive-button-light !important;
-      color: $color-inactive-text-light !important;
-      border: 1px solid $color-inactive-button-light !important;
-      cursor: default;
-    }
-
-    &:hover:not(:disabled) {
-      background-color: $color-brand-hover-light !important;
-      color: $color-text-secundary-light !important;
-    }
-
-    &.labeling-active {
-      background-color: $color-brand-opacity-20-light !important;
-      border: 1px solid $color-brand-opacity-20-light !important;
-      color: $color-brand-light !important;
-    }
-
-    .icon-btn {
-      filter: brightness(0) saturate(100%) invert(99%) sepia(2%) saturate(61%)
-        hue-rotate(44deg) brightness(115%) contrast(83%);
-    }
-  }
-
-  .btn-secondary {
-    background-color: transparent !important;
-    border: 1px solid $color-brand-light !important;
-    color: $color-brand-light !important;
-
-    &:disabled {
-      background-color: transparent !important;
-      border: 1px solid $color-inactive-button-light !important;
-      color: $color-inactive-text-light !important;
-    }
-
-    &:hover:not(:disabled) {
-      background-color: $color-brand-opacity-20-light !important;
-      color: $color-brand-hover-light !important;
-    }
-
-    .icon-btn {
-      filter: brightness(0) saturate(100%) invert(55%) sepia(69%)
-        saturate(5895%) hue-rotate(13deg) brightness(106%) contrast(101%);
-    }
-  }
-
-  .filters {
-    p {
-      color: $color-support-grey-light;
-    }
-
-    .filters-legend {
-      color: $color-support-grey-light;
-    }
-
-    .filter-box {
-      label {
-        p {
-          color: $color-text-light;
-        }
-      }
-    }
-
-    .filter-box label.selected-filter {
-      background-color: $color-brand-light;
-
-      p {
-        color: $color-text-secundary-light;
-      }
-
-      &:hover {
-        background-color: $color-brand-light;
-      }
-    }
-
-    .filter-box label:hover {
-      background-color: $color-brand-opacity-20-light;
-    }
-
-    .clear-button {
-      background-color: transparent;
-      color: $color-brand-light;
-      border: 1px solid $color-brand-light;
-
-      &:hover {
-        background-color: $color-brand-opacity-20-light;
-      }
-    }
-  }
-}
-
 .dark-theme {
   .btn {
     background-color: $color-brand-dark !important;
@@ -153,30 +56,6 @@
 
     .filters-legend {
       color: $color-support-grey-dark;
-    }
-
-    .filter-box {
-      label {
-        p {
-          color: $color-text-dark;
-        }
-      }
-    }
-
-    .filter-box label.selected-filter {
-      background-color: $color-brand-dark;
-
-      p {
-        color: $color-text-secundary-dark;
-      }
-
-      &:hover {
-        background-color: $color-brand-dark;
-      }
-    }
-
-    .filter-box label:hover {
-      background-color: $color-brand-opacity-20-dark;
     }
 
     .clear-button {
@@ -241,36 +120,6 @@
   .filters-legend {
     padding: 8px 8px 8px 16px;
     font-size: 16px;
-  }
-
-  .filter-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-
-    label {
-      border-radius: 20px;
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 8px 8px 8px 16px;
-      cursor: pointer;
-      max-width: 100%;
-
-      p {
-        font-size: 15px;
-      }
-    }
-  }
-
-  .filter-box label.selected-filter {
-    border-radius: 20px;
-  }
-
-  .filter-box label:hover {
-    border-radius: 20px;
   }
 
   .clear-button {
