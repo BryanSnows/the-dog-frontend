@@ -32,41 +32,34 @@ export class PaginationComponent {
     const pageCountToShow = 4;
     const visiblePages = [];
 
-    // Always show the first page
     visiblePages.push(0);
 
-    // First central page visible
     let firstPage = Math.max(
       1,
-      this.currentPage - Math.floor(pageCountToShow / 2),
+      this.currentPage - Math.floor(pageCountToShow / 2)
     );
     let lastPage = Math.min(
       this.totalPages - 2,
-      firstPage + pageCountToShow - 1,
+      firstPage + pageCountToShow - 1
     );
 
-    // Adjust first and last if close to the end
     if (lastPage >= this.totalPages - 2) {
       firstPage = Math.max(1, this.totalPages - pageCountToShow - 1);
       lastPage = this.totalPages - 2;
     }
 
-    // If theres space between first and central pages, show "..."
     if (firstPage > 1) {
-      visiblePages.push(-1); // Representa o "..."
+      visiblePages.push(-1);
     }
 
-    // Add central pages
     for (let i = firstPage; i <= lastPage; i++) {
       visiblePages.push(i);
     }
 
-    // If theres space between central and last pages, show "..."
     if (lastPage < this.totalPages - 2) {
-      visiblePages.push(-1); // Representa o "..."
+      visiblePages.push(-1);
     }
 
-    // Always show the last page
     if (this.totalPages > 1) {
       visiblePages.push(this.totalPages - 1);
     }
