@@ -28,36 +28,36 @@ describe('SearchBarComponent', () => {
   });
 
   it('should emit search event when onSearch is called', () => {
-    spyOn(component.search, 'emit');
+    const emitSpy = jest.spyOn(component.search, 'emit');
 
     component.searchTerm = 'test';
     component.onSearch();
 
-    expect(component.search.emit).toHaveBeenCalledWith('test');
+    expect(emitSpy).toHaveBeenCalledWith('test');
   });
 
   it('should clear searchTerm and emit when clearSearch is called', () => {
-    spyOn(component, 'onSearch');
+    const onSearchSpy = jest.spyOn(component, 'onSearch');
 
     component.searchTerm = 'something';
     component.clearSearch();
 
     expect(component.searchTerm).toBe('');
-    expect(component.onSearch).toHaveBeenCalled();
+    expect(onSearchSpy).toHaveBeenCalled();
   });
 
   it('should set disableBtn when isDisabled input is set', () => {
     component.isDisabled = true;
-    expect(component.disableBtn).toBeTrue();
+    expect(component.disableBtn).toBe(true);
 
     component.isDisabled = false;
-    expect(component.disableBtn).toBeFalse();
+    expect(component.disableBtn).toBe(false);
   });
 
   it('should add class clicked and blur on onSearch if searchBtn exists', () => {
     const nativeElementMock = {
-      classList: { add: jasmine.createSpy('add') },
-      blur: jasmine.createSpy('blur'),
+      classList: { add: jest.fn() },
+      blur: jest.fn(),
     };
 
     component.searchBtn = { nativeElement: nativeElementMock } as any;
@@ -72,10 +72,10 @@ describe('SearchBarComponent', () => {
     const button = fixture.debugElement.query(By.css('.search-btn'));
 
     button.triggerEventHandler('mousedown', {});
-    expect(component.isPressed).toBeTrue();
+    expect(component.isPressed).toBe(true);
 
     button.triggerEventHandler('mouseup', {});
-    expect(component.isPressed).toBeFalse();
+    expect(component.isPressed).toBe(false);
   });
 
   it('should show clear button when searchTerm is not empty', () => {

@@ -11,12 +11,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { DogListComponent } from './dog-list/dog-list.component';
 import { DogService } from '../../shared/services/dog.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('DogListComponent', () => {
   let component: DogListComponent;
   let fixture: ComponentFixture<DogListComponent>;
-  let dogServiceSpy: jasmine.SpyObj<DogService>;
+  let dogService: jest.Mocked<DogService>;
 
   const mockDogs = [
     { id: '1', name: 'Bulldog', origin: 'UK', reference_image_id: 'abc' },
@@ -24,22 +24,25 @@ describe('DogListComponent', () => {
   ];
 
   beforeEach(async () => {
-    const spy = jasmine.createSpyObj('DogService', ['findAll', 'delete']);
+    const dogServiceMock = {
+      findAll: jest.fn(),
+      delete: jest.fn(),
+    };
 
     await TestBed.configureTestingModule({
       imports: [
         DogListComponent,
         MatSnackBarModule,
         MatDialogModule,
-        BrowserAnimationsModule,
+        NoopAnimationsModule,
       ],
-      providers: [{ provide: DogService, useValue: spy }],
+      providers: [{ provide: DogService, useValue: dogServiceMock }],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DogListComponent);
     component = fixture.componentInstance;
-    dogServiceSpy = TestBed.inject(DogService) as jasmine.SpyObj<DogService>;
+    dogService = TestBed.inject(DogService) as jest.Mocked<DogService>;
   });
 
   it('should create', () => {
@@ -47,25 +50,26 @@ describe('DogListComponent', () => {
   });
 
   it('should load dogs on init', () => {
-    dogServiceSpy.findAll.and.returnValue(of(mockDogs));
+    dogService.findAll.mockReturnValue(of(mockDogs));
     fixture.detectChanges();
 
     expect(component.dogs.length).toBeGreaterThan(0);
-    expect(component.isLoading).toBeFalse();
+    expect(component.isLoading).toBeFalsy();
   });
 
   it('should search dogs after delay', fakeAsync(() => {
     const searchTerm = 'bulldog';
-    dogServiceSpy.findAll.and.returnValue(of(mockDogs));
+    dogService.findAll.mockReturnValue(of(mockDogs));
     fixture.detectChanges();
 
     component.searchDogs(searchTerm);
     tick(500);
+
     expect(component.filters.search).toBe(searchTerm);
   }));
 
   it('should delete a dog', () => {
-    dogServiceSpy.delete.and.returnValue(of({ message: 'Deleted' }));
+    dogService.delete.mockReturnValue(of({ message: 'Deleted' }));
     component.dogs = [...mockDogs];
 
     component.deleteDog(mockDogs[0]);
@@ -75,16 +79,16 @@ describe('DogListComponent', () => {
   });
 
   it('should handle API errors gracefully', () => {
-    dogServiceSpy.findAll.and.returnValue(
+    dogService.findAll.mockReturnValue(
       throwError(() => new Error('API Error'))
     );
     component.loadDogs(0);
 
-    expect(component.isLoading).toBeFalse();
+    expect(component.isLoading).toBeFalsy();
   });
 
   it('should handle empty dog list', () => {
-    dogServiceSpy.findAll.and.returnValue(of([]));
+    dogService.findAll.mockReturnValue(of([]));
     component.loadDogs(0);
 
     expect(component.dogs.length).toBe(0);

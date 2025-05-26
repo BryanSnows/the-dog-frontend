@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { FullscreenService } from './fullscreen.service';
+import { firstValueFrom } from 'rxjs';
 
 describe('FullscreenService', () => {
   let service: FullscreenService;
@@ -13,20 +14,18 @@ describe('FullscreenService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should set fullscreen value correctly', (done) => {
+  it('should set fullscreen value correctly', async () => {
     service.setFullscreen(true);
 
-    service.fullscreen$.subscribe((value) => {
-      expect(value).toBeTrue();
-      done();
-    });
+    const value = await firstValueFrom(service.fullscreen$);
+    expect(value).toBe(true);
   });
 
   it('should return current fullscreen value', () => {
     service.setFullscreen(true);
-    expect(service.getFullscreenValue()).toBeTrue();
+    expect(service.getFullscreenValue()).toBe(true);
 
     service.setFullscreen(false);
-    expect(service.getFullscreenValue()).toBeFalse();
+    expect(service.getFullscreenValue()).toBe(false);
   });
 });

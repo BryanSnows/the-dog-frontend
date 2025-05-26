@@ -7,7 +7,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 describe('AlertSnackbarComponent', () => {
   let component: AlertSnackbarComponent;
   let fixture: ComponentFixture<AlertSnackbarComponent>;
-  let mockSnackbar: jasmine.SpyObj<MatSnackBar>;
+  let mockSnackbar: jest.Mocked<MatSnackBar>;
 
   const mockData = {
     title: 'Sucesso!',
@@ -16,7 +16,9 @@ describe('AlertSnackbarComponent', () => {
   };
 
   beforeEach(async () => {
-    mockSnackbar = jasmine.createSpyObj('MatSnackBar', ['dismiss']);
+    mockSnackbar = {
+      dismiss: jest.fn(),
+    } as unknown as jest.Mocked<MatSnackBar>;
 
     await TestBed.configureTestingModule({
       imports: [AlertSnackbarComponent, NoopAnimationsModule],
@@ -59,9 +61,9 @@ describe('AlertSnackbarComponent', () => {
   });
 
   it('should call close() when close button is clicked', () => {
-    spyOn(component, 'close');
+    const closeSpy = jest.spyOn(component, 'close');
     const button = fixture.debugElement.query(By.css('button')).nativeElement;
     button.click();
-    expect(component.close).toHaveBeenCalled();
+    expect(closeSpy).toHaveBeenCalled();
   });
 });

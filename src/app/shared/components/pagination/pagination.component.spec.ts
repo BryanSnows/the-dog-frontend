@@ -21,22 +21,22 @@ describe('PaginationComponent', () => {
   });
 
   it('should emit pageChange when setPage is called with valid page', () => {
-    spyOn(component.pageChange, 'emit');
+    const emitSpy = jest.spyOn(component.pageChange, 'emit');
     component.totalPages = 5;
 
     component.setPage(2);
 
-    expect(component.pageChange.emit).toHaveBeenCalledWith(2);
+    expect(emitSpy).toHaveBeenCalledWith(2);
   });
 
   it('should not emit pageChange when setPage is called with invalid page', () => {
-    spyOn(component.pageChange, 'emit');
+    const emitSpy = jest.spyOn(component.pageChange, 'emit');
     component.totalPages = 5;
 
     component.setPage(-1);
     component.setPage(5);
 
-    expect(component.pageChange.emit).not.toHaveBeenCalled();
+    expect(emitSpy).not.toHaveBeenCalled();
   });
 
   it('should return correct totalPagesArray', () => {
@@ -80,8 +80,8 @@ describe('PaginationComponent', () => {
     const firstButton = buttons[0].nativeElement as HTMLButtonElement;
     const prevButton = buttons[1].nativeElement as HTMLButtonElement;
 
-    expect(firstButton.disabled).toBeTrue();
-    expect(prevButton.disabled).toBeTrue();
+    expect(firstButton.disabled).toBe(true);
+    expect(prevButton.disabled).toBe(true);
   });
 
   it('should disable next buttons when on last page', () => {
@@ -93,8 +93,8 @@ describe('PaginationComponent', () => {
     const nextButton = buttons[2].nativeElement as HTMLButtonElement;
     const lastButton = buttons[3].nativeElement as HTMLButtonElement;
 
-    expect(nextButton.disabled).toBeTrue();
-    expect(lastButton.disabled).toBeTrue();
+    expect(nextButton.disabled).toBe(true);
+    expect(lastButton.disabled).toBe(true);
   });
 
   it('should add active class to current page button', () => {

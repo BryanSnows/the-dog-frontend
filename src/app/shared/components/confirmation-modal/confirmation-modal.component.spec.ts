@@ -7,7 +7,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 describe('ConfirmationModalComponent', () => {
   let component: ConfirmationModalComponent;
   let fixture: ComponentFixture<ConfirmationModalComponent>;
-  let mockDialogRef: jasmine.SpyObj<MatDialogRef<ConfirmationModalComponent>>;
+  let mockDialogRef: jest.Mocked<MatDialogRef<ConfirmationModalComponent>>;
 
   const mockData = {
     title: 'Confirmação',
@@ -18,7 +18,9 @@ describe('ConfirmationModalComponent', () => {
   };
 
   beforeEach(async () => {
-    mockDialogRef = jasmine.createSpyObj('MatDialogRef', ['close']);
+    mockDialogRef = {
+      close: jest.fn(),
+    } as unknown as jest.Mocked<MatDialogRef<ConfirmationModalComponent>>;
 
     await TestBed.configureTestingModule({
       imports: [ConfirmationModalComponent, NoopAnimationsModule],
@@ -62,10 +64,10 @@ describe('ConfirmationModalComponent', () => {
   });
 
   it('should call onButtonClick when confirm button is clicked', () => {
-    spyOn(component, 'onButtonClick');
+    const onButtonClickSpy = jest.spyOn(component, 'onButtonClick');
     const button = fixture.debugElement.queryAll(By.css('button'))[1]
       .nativeElement;
     button.click();
-    expect(component.onButtonClick).toHaveBeenCalled();
+    expect(onButtonClickSpy).toHaveBeenCalled();
   });
 });

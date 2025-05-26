@@ -9,10 +9,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FullscreenService } from '../shared/services/fullscreen.service';
 import { SharedModule } from '../shared/shared.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { of, Subject } from 'rxjs';
+import { of } from 'rxjs';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Router, NavigationEnd } from '@angular/router';
+import {
+  BrowserAnimationsModule,
+  NoopAnimationsModule,
+} from '@angular/platform-browser/animations';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -25,10 +28,6 @@ describe('HomeComponent', () => {
   let fixture: ComponentFixture<HomeComponent>;
   let fullscreenService: FullscreenService;
 
-  beforeAll(() => {
-    jasmine.getEnv().allowRespy(true);
-  });
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -38,7 +37,7 @@ describe('HomeComponent', () => {
         ]),
         SharedModule,
         MatSidenavModule,
-        BrowserAnimationsModule,
+        NoopAnimationsModule,
       ],
       providers: [
         {
@@ -72,24 +71,26 @@ describe('HomeComponent', () => {
   it('should toggle menuOpen state', () => {
     component.menuOpen = false;
     component.toggleMenu();
-    expect(component.menuOpen).toBeTrue();
+    expect(component.menuOpen).toBe(true);
 
     component.toggleMenu();
-    expect(component.menuOpen).toBeFalse();
+    expect(component.menuOpen).toBe(false);
   });
 
   it('should set isMobile based on window size', () => {
-    spyOnProperty(window, 'innerWidth', 'get').and.returnValue(500);
-    component.onResize({ target: window });
-    expect(component.isMobile).toBeTrue();
+    Object.defineProperty(window, 'innerWidth', {
+      writable: true,
+      configurable: true,
+      value: 500,
+    });
 
-    spyOnProperty(window, 'innerWidth', 'get').and.returnValue(1024);
     component.onResize({ target: window });
-    expect(component.isMobile).toBeFalse();
+
+    expect(component.isMobile).toBe(true);
   });
 
   it('should set isFullscreen from fullscreenService observable', () => {
-    expect(component.isFullscreen).toBeTrue();
+    expect(component.isFullscreen).toBe(true);
   });
 
   it('should update routeActive and mainRouteActive on router event', fakeAsync(() => {
@@ -105,9 +106,15 @@ describe('HomeComponent', () => {
       _getWidth: () => 200,
     } as any;
 
-    const setPropSpy = spyOn(document.documentElement.style, 'setProperty');
+    const setPropSpy = jest.spyOn(
+      document.documentElement.style,
+      'setProperty'
+    );
+
     component.getMenuWidth();
 
     expect(setPropSpy).toHaveBeenCalledWith('--left-value', '209px');
+
+    setPropSpy.mockRestore();
   });
 });

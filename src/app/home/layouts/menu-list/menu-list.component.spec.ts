@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MenuListComponent } from './menu-list.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -34,30 +34,46 @@ describe('MenuListComponent', () => {
   });
 
   it('should unsubscribe on ngOnDestroy', () => {
-    const spy = spyOn(
+    const unsubscribeSpy = jest.spyOn(
       component['subscriptions'],
       'unsubscribe'
-    ).and.callThrough();
+    );
     component.ngOnDestroy();
-    expect(spy).toHaveBeenCalled();
+    expect(unsubscribeSpy).toHaveBeenCalled();
   });
 
   it('should navigate to the correct module on goToModule', () => {
-    const navigateSpy = spyOn(component['router'], 'navigate');
+    const navigateSpy = jest.spyOn(component['router'], 'navigate');
     component.goToModule('/dogs');
     expect(navigateSpy).toHaveBeenCalledWith(['/dogs']);
   });
 
   it('should set isMobile correctly on resize', () => {
-    const innerWidthSpy = spyOnProperty(window, 'innerWidth', 'get');
+    const originalInnerWidth = window.innerWidth;
 
-    innerWidthSpy.and.returnValue(500);
-    component.onResize({});
-    expect(component.isMobile).toBeTrue();
+    Object.defineProperty(window, 'innerWidth', {
+      writable: true,
+      configurable: true,
+      value: 500,
+    });
 
-    innerWidthSpy.and.returnValue(1024);
     component.onResize({});
-    expect(component.isMobile).toBeFalse();
+    expect(component.isMobile).toBe(true);
+
+    Object.defineProperty(window, 'innerWidth', {
+      writable: true,
+      configurable: true,
+      value: 1024,
+    });
+
+    component.onResize({});
+    expect(component.isMobile).toBe(false);
+
+    Object.defineProperty(window, 'innerWidth', {
+      writable: true,
+      configurable: true,
+      value: originalInnerWidth,
+    });
   });
 
   it('should render the user name and role in template', () => {

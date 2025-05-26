@@ -7,7 +7,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 describe('DogDetailsModalComponent', () => {
   let component: DogDetailsModalComponent;
   let fixture: ComponentFixture<DogDetailsModalComponent>;
-  let mockDialogRef: jasmine.SpyObj<MatDialogRef<DogDetailsModalComponent>>;
+  let mockDialogRef: jest.Mocked<MatDialogRef<DogDetailsModalComponent>>;
 
   const mockData = {
     name: 'Golden Retriever',
@@ -21,7 +21,9 @@ describe('DogDetailsModalComponent', () => {
   };
 
   beforeEach(async () => {
-    mockDialogRef = jasmine.createSpyObj('MatDialogRef', ['close']);
+    mockDialogRef = {
+      close: jest.fn(),
+    } as unknown as jest.Mocked<MatDialogRef<DogDetailsModalComponent>>;
 
     await TestBed.configureTestingModule({
       imports: [DogDetailsModalComponent, NoopAnimationsModule],
@@ -78,9 +80,9 @@ describe('DogDetailsModalComponent', () => {
   });
 
   it('should call close method when Fechar button is clicked', () => {
-    spyOn(component, 'close');
+    const closeSpy = jest.spyOn(component, 'close');
     const button = fixture.debugElement.query(By.css('button')).nativeElement;
     button.click();
-    expect(component.close).toHaveBeenCalled();
+    expect(closeSpy).toHaveBeenCalled();
   });
 });

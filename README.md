@@ -16,19 +16,32 @@ DogCrud é uma aplicação Angular que consome a [The Dog API](https://thedogapi
 A arquitetura do projeto foi pensada para manter a organização e escalabilidade da aplicação:
 
 ```bash
-src/
-├── app/
-│ ├── home/ # Funcionalidades principais da aplicação
-│ │ ├── dog/ # Lógica e interface de listagem/visualização de raças
-│ │ ├── layouts/ # Estrutura visual (ex: header, sidebar)
-│ │ └── welcome/ # Página de boas-vindas
-│ ├── shared/ # Elementos compartilhados
-│ │ ├── components/ # Componentes reutilizáveis (ex: search-bar)
-│ │ └── services/ # Serviços (ex: THE DOG API)
-│ └── app.routes.ts # Configuração de rotas
-├── assets/ # Imagens, fontes e recursos estáticos
-├── environments/ # Arquivos de ambiente (ex: development)
-└── scss/ # Estilos globais
+├── src/
+│   ├── app/
+│   │   ├── home/                       # Funcionalidades principais
+│   │   │   ├── dog/                   # Lógica e UI de raças
+│   │   │   ├── layouts/              # Header, sidebar, etc.
+│   │   │   └── welcome/              # Página de boas-vindas
+│   │   ├── shared/                    # Elementos reutilizáveis
+│   │   │   ├── components/           # Componentes genéricos (ex: search-bar)
+│   │   │   └── services/             # Serviços (ex: TheDogAPI)
+│   │   └── app.routes.ts             # Configuração de rotas
+│   ├── assets/                        # Imagens, fontes, etc.
+│   ├── environments/                 # Ambientes (dev, prod)
+│   └── scss/                          # Estilos globais
+├── .dockerignore                     # Arquivos/pastas ignorados no Docker
+├── .gitignore                        # Ignorados pelo Git
+├── angular.json                      # Configuração do Angular CLI
+├── jest.config.ts                    # Configuração do Jest
+├── setup-jest.ts                     # Setup para Jest (zone.js, etc)
+├── tsconfig.json                     # Configurações do TypeScript
+├── tsconfig.app.json                 # TS config da app
+├── tsconfig.spec.json                # TS config para testes
+├── package.json                      # Dependências e scripts
+├── Dockerfile                        # Build do Angular + NGINX
+├── docker-compose.yml                # Orquestração com Docker Compose
+├── nginx.conf                        # Configuração de NGINX para SPA
+└── README.md
 ```
 
 ## ▶️ Rodando o Servidor de Desenvolvimento
@@ -42,7 +55,7 @@ npm install
 Para iniciar o servidor local:
 
 ```bash
-ng serve
+npm start
 ```
 
 ## 🐳 Rodando com Docker
@@ -83,17 +96,15 @@ O resultado será salvo no diretório dist/.
 
 ## ✅ Testes Unitários
 
-O projeto possui testes unitários escritos com **Jasmine** e executados com **Karma**.
+O projeto possui testes unitários escritos com **Jest** .
 
 ### Para rodar os testes:
 
 ```bash
-ng test
+npm run test
 ```
 
-O comando abre uma janela no navegador com o resultado da suíte de testes, atualizando automaticamente com cada modificação.
-
-![alt text](./src/assets/images/readme/unit-tests.png)
+![alt text](./src/assets/images/readme/jest.png)
 
 ### Os testes validam:
 
